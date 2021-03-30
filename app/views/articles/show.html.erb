@@ -1,0 +1,28 @@
+<div class="container">
+  <%= @article.title %>
+  <%= @article.writers_name %>
+  <%= @article.publication_date %>
+  <%= @article.newspaper.name %>
+  <%= @article.newspaper.tag_political %>
+  <%= @article.content %>
+</div>
+
+  <% counter = 0 %>
+  <% average_rating = 0 %>
+  <% @article.ratings.each do|rating| %>
+    <% average_rating += rating %>
+    <% counter += 1 %>
+  <% end %>
+
+<div class="comments">
+  <% if @article.comments.present? %>
+    <h3>All comments</h3>
+    <% @article.comments.each do |comment| %>
+    <li class="list-group-item mt-3 mb-3" id="comment-<%= comment.id %>">
+        <%= comment.content %>
+    <% end %>
+  <% else %>
+    <%= Be the first to share your views! %>
+  <% end %>
+
+
