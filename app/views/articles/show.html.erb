@@ -1,27 +1,47 @@
 <div class="container">
-  <h1><%= @article.title %></h1>
-  <div class="article-date-writer">
-    <%= @article.writers_name %>
-    <%= @article.publication_date %>
+  <div class="whole-article-beggining">
+    <div class="article-info">
+      <div class="article-political">
+        <div class="article-title">
+          <h1><%= @article.title %></h1>
+        </div>
+        <div class="overall-rating-and-political-tag">
+          <% average_rating = 0 %>
+          <% if @article.ratings.present? %>
+            <% @article.ratings.each do|political| %>
+              <% average_rating += political.rating %>
+            <% end %>
+            <%= average_rating / @article.ratings.size %>
+          <% end %>
+          <%= @article.newspaper.tag_political %>
+        </div>
+      </div>
+
+      <div class="article-date-writer">
+        <div>
+          <em><%= @article.writers_name %></em>
+          <%= @article.publication_date %>
+        </div>
+      <div>
+        <%= @article.newspaper.name %>
+      </div>
+    </div>
+    </div>
+    <div class="new-rating">
+      <% if user_signed_in? %>
+        <h4>Place on a scale!</h4>
+        <%= simple_form_for([ @article, @rating ], remote: true) do |f| %>
+          <%= f.input :rating, label: "Rating" %>
+          <%= f.submit "Submit rating" %>
+        <% end %>
+      <% else %>
+        <%= link_to "Login to leave a rating",  new_user_session_path %>
+      <% end %>
+    </div>
   </div>
-  <div>
-  <%= @article.newspaper.name %>
-  </div>
-  <div>
-  <%= @article.newspaper.tag_political %>
-  </div>
-  <% average_rating = 0 %>
-  <% if @article.ratings.present? %>
-    <% @article.ratings.each do|political| %>
-      <% average_rating += political.rating %>
-    <% end %>
-    <%= average_rating / @article.ratings.size %>
-  <% end %>
   <div class="article-content">
     <%= @article.content %>
   </div>
-
-
   <div class="comments">
     <% if @article.comments.present? %>
       <h3>All comments</h3>
@@ -33,18 +53,18 @@
       </ol>
       <% end %>
     <% end %>
-      <% if user_signed_in? %>
+    <% if user_signed_in? %>
       <div class="leave-comment mt-3 mb-3">
         <h2>⭐Share your own views!</h2>
         <%= simple_form_for([ @article, @comment ], remote: true) do |f| %>
           <%= f.input :content, label: "Comment" %>
-          <%= f.submit "Submit review" %>
+          <%= f.submit "Submit comment" %>
         <% end %>
       <% else %>
-        <%= link_to "Login to leave a review",  new_user_session_path %>
+        <%= link_to "Login to leave a comment",  new_user_session_path %>
       <% end %>
       </div>
-      </div>
+  </div>
 </div>
 
 
