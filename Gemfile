@@ -27,15 +27,14 @@ gem 'pundit'
 gem 'faker'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-
+gem 'dotenv-rails'
 gem 'devise'
-
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'dotenv-rails'
+  
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -48,6 +47,7 @@ group :development do
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
+  
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
