@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
 
   def show
     @comment = Comment.new
+    @rating = Rating.new
   end
 
   def create
