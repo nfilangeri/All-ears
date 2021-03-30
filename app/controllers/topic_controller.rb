@@ -15,7 +15,7 @@ class TopicController < ApplicationController
         @topic = Topic.new(params_topic)
         @topic.user = current_user
         if @topic.save
-            redirect_to topics_path(topic)
+           redirect_to topics_path(topic)
         end
     end
 

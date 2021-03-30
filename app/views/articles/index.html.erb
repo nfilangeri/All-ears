@@ -1,0 +1,14 @@
+<div class="container">
+  <%@articles.each do |article|%>
+    <%= article.title %>
+    <%= article.publication_date %>
+    <%= article.newspaper.tag_political %>
+    <% if policy(Article).destroy? %>
+      <%= link_to "Delete article", article_path(article), method: :delete, data: { confirm: "Delete article?" } %>
+    <% end %>
+  <% end %>
+</div>
+
+
+
+

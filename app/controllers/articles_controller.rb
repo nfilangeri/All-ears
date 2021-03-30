@@ -1,26 +1,26 @@
 class ArticlesController < ApplicationController
-    before_action :set_articles, only: [:show, :create, :destroy]
+  before_action :set_articles, only: [:show, :create, :destroy]
 
-    def index
-        @articles = Article.all
-    end
+  def index
+    @articles = Article.all
+  end
 
-    def show
-    end
+  def show
+  end
 
-    def create
-        @article = Article.new(params_article)
-        @newspaper = Newspaper.find(params(:newspaper_id))
-        @article.newspaper = @newspaper
-        if @article.save
-            redirect_to @article
-        end
+  def create
+    @article = Article.new(params_article)
+    @newspaper = Newspaper.find(params(:newspaper_id))
+    @article.newspaper = @newspaper
+    if @article.save
+      redirect_to @article
     end
+  end
 
-    def destroy
-        @article.destroy
-        redirect_to @index
-    end
+  def destroy
+    @article.destroy
+    redirect_to @index
+  end
 
     private
 
