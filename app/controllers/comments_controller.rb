@@ -1,10 +1,13 @@
 class CommentsController < ApplicationController
-    before_action :set_comments, only: [:create, :update, :destroy]
+    before_action :set_comments, only: [:update, :destroy]
 
     def create
+        @comment = Comment.new(params_comment)
         @comment.article = Article.find(params[:article_id])
         @comment.user = current_user
-        @comment = Comment.new(params_comment)
+        if @comment.save
+            redirect_to articles_path
+        end
     end
 
     def update
