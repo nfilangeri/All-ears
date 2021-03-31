@@ -34,10 +34,10 @@
         <%= link_to "Delete article", article_path(article_4), method: :delete, data: { confirm: "Delete article?" } %>
         <% end %>
       </div>
-      <% article_4 = @articles[4] %>
+      <% article_5 = @articles[4] %>
       <div class="each-first-column">
         <%= image_tag "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=606&q=80" %>
-        <h4><p><%= link_to article_4.title, article_path(article_4)%></p></h4>
+        <h4><p><%= link_to article_5.title, article_path(article_5)%></p></h4>
         <%= article_4.publication_date %>
         <%= article_4.newspaper.tag_political %>
         <% if policy(Article).destroy? %>
