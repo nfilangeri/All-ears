@@ -11,7 +11,7 @@
             <% @article.ratings.each do|political| %>
               <% average_rating += political.rating %>
             <% end %>
-            <%= average_rating / @article.ratings.size %>
+            <span class="btn btn-ghost-circle"><%= average_rating / @article.ratings.size %>% objective</span>
           <% end %>
           <%= @article.newspaper.tag_political %>
         </div>
@@ -20,7 +20,7 @@
       <div class="article-date-writer">
         <div>
           <em><%= @article.writers_name %></em>
-          <%= @article.publication_date %>
+          <%= @article.publication_date.to_date.to_formatted_s :long_ordinal %>
         </div>
       <div>
         <%= @article.newspaper.name %>
@@ -28,38 +28,49 @@
     </div>
     </div>
     <div class="new-rating">
-      <% if user_signed_in? %>
-        <h4>Place on a scale!</h4>
-        <%= simple_form_for([ @article, @rating ], remote: true) do |f| %>
-          <%= f.input :rating, label: "Rating" %>
-          <%= f.submit "Submit rating" %>
-        <% end %>
+      <% if user_signed_in?%>
+        <h5><strong>Place on a scale!</strong></h5>
+        <div class="form-rating">
+          <%= simple_form_for([ @article, @rating ]) do |f| %>
+            <%= f.input :rating, label: "From subjective to objective", as: :range, collection: 1..100 %>
+            <%= f.submit "Submit rating", class: "btn btn-ghost", id: "submit-rating" %>
+          <% end %>
+      </div>
       <% else %>
         <%= link_to "Login to leave a rating",  new_user_session_path %>
-      <% end %>
+     <% end %>
+     </div>
+        <div class="rating-thank-you">
+          <h3>Thank you for rating!</h3>
+        </div>
+
     </div>
-  </div>
   <div class="article-content">
     <%= @article.content %>
   </div>
   <div class="comments">
     <% if @article.comments.present? %>
-      <h3>All comments</h3>
+      <h3><strong>Comments (<%= @article.comments.count %>)</strong></h3>
       <% @article.comments.each do |comment| %>
       <ol>
         <li class="list-group-item mt-3 mb-3" id="comment-<%= comment.id %>">
+          <strong><%= comment.user.username %></strong>
+          | <%= distance_of_time_in_words(Time.now -  comment.created_at) + ' ago' %>
+          <br>
           <%= comment.content %>
         </li>
       </ol>
       <% end %>
     <% end %>
     <% if user_signed_in? %>
-      <div class="leave-comment mt-3 mb-3">
-        <h2>⭐Share your own views!</h2>
+      <div class="leave-comment">
+        <h3><strong>Share your own views!</strong></h3>
+        <div class="form-for-comment">
         <%= simple_form_for([ @article, @comment ], remote: true) do |f| %>
-          <%= f.input :content, label: "Comment" %>
-          <%= f.submit "Submit comment" %>
+          <%= f.input :content, label: false, hint: 'Max 500 words', placeholder: 'Your comment' %>
+          <%= f.submit "Submit comment", class: "btn btn-ghost" %>
         <% end %>
+      </div>
       <% else %>
         <%= link_to "Login to leave a comment",  new_user_session_path %>
       <% end %>

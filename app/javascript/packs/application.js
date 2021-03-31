@@ -25,6 +25,15 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
+  const submitButton = document.getElementById("submit-rating");
+  submitButton.addEventListener('click', (event) => {
+    const newRating = document.querySelector(".new-rating");
+    newRating.style.display = "none";
+    const ratingThankYou = document.querySelector(".rating-thank-you");
+    ratingThankYou.style.display = "block";
+})
   // Call your functions here, e.g:
   // initSelect2();
 });
+
+

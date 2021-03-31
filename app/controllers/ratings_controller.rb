@@ -8,19 +8,22 @@ class RatingsController < ApplicationController
     end
 
     def create
-        @article = Article.find(params[:id])
+        @article = Article.find(params[:article_id])
         @rating = Rating.new(params_rating)
         @rating.article = @article
         @rating.user = current_user
-        if @rating.save
-            redirect_to articles_path(article)
-        end
+        @rating.save
+        #if @rating.save
+           # redirect_to articles_path(@article)
+        #else
+          #redirect to articles_path(@article)
+      # end
     end
 
-    private 
+    private
 
     def params_rating
-        params.require(:comment).permit(:article, :user, :rating)
+        params.require(:rating).permit(:article, :user, :rating)
     end
 
 end
