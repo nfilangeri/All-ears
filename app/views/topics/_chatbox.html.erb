@@ -1,0 +1,17 @@
+<div class="d-flex row justify-content-center">
+  <div class="topic">
+    <h1><%= @topic.subject %></h1>
+
+    <div>
+      <div id="messages" data-topic-id="<%= @topic.id %>">
+        <% @topic.messages.each do |message| %>
+          <%= render "messages/message", message: message %>
+        <% end %>
+      </div>
+
+      <%= simple_form_for [ @topic, @message ], remote: true do |f| %>
+        <%= f.input :content, as: :string , label: false  %>
+      <% end %>
+    </div>
+  </div>
+</div>
