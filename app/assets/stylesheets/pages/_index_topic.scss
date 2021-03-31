@@ -1,0 +1,17 @@
+#card-topic a {
+    text-decoration: none;
+    color: black;
+    &:hover {
+       color: grey 
+    }
+}
+
+#text {
+    padding-left: 35px;
+}
+
+#card-topic {
+    margin-top: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid black;
+}

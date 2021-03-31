@@ -1,10 +1,11 @@
-class TopicController < ApplicationController
+class TopicsController < ApplicationController
     before_action :set_topics, only: [:show, :update, :destroy]
     def index
         @topics = Topic.all
     end
 
     def show
+        @message = Message.new
     end
 
     def new
@@ -28,7 +29,8 @@ class TopicController < ApplicationController
     end
 
     def destroy
-
+        @topic.destroy
+        redirect_to topics_path
     end
 
     private
@@ -41,3 +43,4 @@ class TopicController < ApplicationController
         @topic = Topic.find(params[:id])
     end
 end
+

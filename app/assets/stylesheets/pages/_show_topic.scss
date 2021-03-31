@@ -1,0 +1,12 @@
+#back a {
+    text-decoration: none;
+    color: black;
+    &:hover {
+        color: grey;
+    }
+}
+
+#photo {
+    border-bottom: 2px solid black;
+    padding-bottom: 25px;
+}
