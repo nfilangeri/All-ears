@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 2021_03_31_144954) do
     t.date "publication_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
+    t.string "description"
     t.index ["newspaper_id"], name: "index_articles_on_newspaper_id"
   end
 
@@ -86,8 +88,6 @@ ActiveRecord::Schema.define(version: 2021_03_31_144954) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "engine"
-    t.string "image"
-    t.string "description"
   end
 
   create_table "ratings", force: :cascade do |t|

@@ -89,6 +89,7 @@ puts "creating objectiveness ratings"
     rating.save
 end
 
+bbc_news = Newspaper.new(name:"BBC News", tag_political: "center")
 
 
 puts "Done!"
