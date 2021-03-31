@@ -13,10 +13,15 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
+    <% unless action_name == "home" %>
+       <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <%= render 'shared/footer' %>
+    <% end %>
+
 
     <%= yield %>
   </body>
 </html>
+
+
