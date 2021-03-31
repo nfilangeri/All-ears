@@ -1,0 +1,42 @@
+.article-info {
+  border-right: 2px solid black;
+  padding: 20px;
+  margin: 20px;
+  width: 1000px;
+}
+
+.new-rating {
+  padding: 20px;
+  margin: 20px;
+}
+
+.whole-article-beggining{
+  display: flex;
+}
+
+.article-political {
+  display:flex;
+  justify-content: space-between;
+  margin-right:20px;
+  align-items: baseline;
+}
+
+.article-content{
+  padding-top:100px;
+  padding-bottom:100px;
+}
+
+.article-date-writer {
+  align-content: space-between;
+}
+
+.leave-comment {
+  margin-top:30px;
+  margin-bottom: 30px;
+}
+
+.rating-thank-you {
+  display:none;
+  text-align:center;
+  margin-top:50px;
+}

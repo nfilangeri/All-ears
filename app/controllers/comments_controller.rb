@@ -3,10 +3,11 @@ class CommentsController < ApplicationController
 
     def create
         @comment = Comment.new(params_comment)
-        @comment.article = Article.find(params[:article_id])
+        @article = Article.find(params[:article_id])
+        @comment.article = @article
         @comment.user = current_user
         if @comment.save
-            redirect_to articles_path
+            redirect_to article_path(@article), anchor: "comment-#{@comment.id}"
         end
     end
 
