@@ -8,10 +8,10 @@
         <div class="overall-rating-and-political-tag">
           <% average_rating = 0 %>
           <% if @article.ratings.present? %>
-            <% @article.ratings.each do|political| %>
-              <% average_rating += political.rating %>
-            <% end %>
-            <span class="btn btn-ghost-circle"><%= average_rating / @article.ratings.size %>% objective</span>
+          <% @article.ratings.each do|political| %>
+          <% average_rating += political.rating %>
+          <% end %>
+          <span class="btn btn-ghost-circle"><%= average_rating / @article.ratings.size %>% objective</span>
           <% end %>
           <%= @article.newspaper.tag_political %>
         </div>
@@ -22,62 +22,62 @@
           <em><%= @article.writers_name %></em>
           <%= @article.publication_date.to_date.to_formatted_s :long_ordinal %>
         </div>
-      <div>
-        <%= @article.newspaper.name %>
+        <div>
+          <%= @article.newspaper.name %>
+        </div>
       </div>
-    </div>
     </div>
     <div class="new-rating">
       <% if user_signed_in?%>
-        <h5><strong>Place on a scale!</strong></h5>
-        <div class="form-rating">
-          <%= simple_form_for([ @article, @rating ]) do |f| %>
-            <%= f.input :rating, label: "From subjective to objective", as: :range, collection: 1..100 %>
-            <%= f.submit "Submit rating", class: "btn btn-ghost", id: "submit-rating" %>
-          <% end %>
+      <h5><strong>Place on a scale!</strong></h5>
+      <div class="form-rating">
+        <%= simple_form_for([ @article, @rating ]) do |f| %>
+        <%= f.input :rating, label: "From subjective to objective", as: :range, collection: 1..100 %>
+        <%= f.submit "Submit rating", class: "btn btn-ghost", id: "submit-rating" %>
+        <% end %>
       </div>
       <% else %>
-        <%= link_to "Login to leave a rating",  new_user_session_path %>
-     <% end %>
-     </div>
-        <div class="rating-thank-you">
-          <h3>Thank you for rating!</h3>
-        </div>
-
+      <%= link_to "Login to leave a rating",  new_user_session_path %>
+      <% end %>
     </div>
+    <div class="rating-thank-you">
+      <h3>Thank you for rating!</h3>
+    </div>
+
+  </div>
   <div class="article-content">
     <%= @article.content %>
   </div>
   <div class="comments">
     <% if @article.comments.present? %>
-      <h3><strong>Comments (<%= @article.comments.count %>)</strong></h3>
-      <% @article.comments.each do |comment| %>
-      <ol>
-        <li class="list-group-item mt-3 mb-3" id="comment-<%= comment.id %>">
-          <strong><%= comment.user.username %></strong>
-          | <%= distance_of_time_in_words(Time.now -  comment.created_at) + ' ago' %>
-          <br>
-          <%= comment.content %>
-          <% if policy(comment).destroy? %>
-            <%= link_to "Delete comment", article_comment_path(@article, comment), method: :delete, data: { confirm: "Delete comment?" } %>
-         <% end %>
-        </li>
-      </ol>
-      <% end %>
+    <h3><strong>Comments (<%= @article.comments.count %>)</strong></h3>
+    <% @article.comments.each do |comment| %>
+    <ol>
+      <li class="list-group-item mt-3 mb-3" id="comment-<%= comment.id %>">
+        <strong><%= comment.user.username %></strong>
+        | <%= distance_of_time_in_words(Time.now -  comment.created_at) + ' ago' %>
+        <br>
+        <%= comment.content %>
+        <% if policy(comment).destroy? %>
+        <%= link_to "Delete comment", article_comment_path(@article, comment), method: :delete, data: { confirm: "Delete comment?" } %>
+        <% end %>
+      </li>
+    </ol>
+    <% end %>
     <% end %>
     <% if user_signed_in? %>
-      <div class="leave-comment">
-        <h3><strong>Share your own views!</strong></h3>
-        <div class="form-for-comment">
+    <div class="leave-comment">
+      <h3><strong>Share your own views!</strong></h3>
+      <div class="form-for-comment">
         <%= simple_form_for([ @article, @comment ]) do |f| %>
-          <%= f.input :content, label: false, hint: 'Max 500 words', placeholder: 'Your comment' %>
-          <%= f.submit "Submit comment", class: "btn btn-ghost" %>
+        <%= f.input :content, label: false, hint: 'Max 500 words', placeholder: 'Your comment' %>
+        <%= f.submit "Submit comment", class: "btn btn-ghost" %>
         <% end %>
       </div>
       <% else %>
-        <%= link_to "Login to leave a comment",  new_user_session_path %>
+      <%= link_to "Login to leave a comment",  new_user_session_path %>
       <% end %>
-      </div>
+    </div>
   </div>
 </div>
 
