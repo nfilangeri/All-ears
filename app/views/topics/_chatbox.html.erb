@@ -4,9 +4,7 @@
 
     <div>
       <div id="messages" data-topic-id="<%= @topic.id %>">
-        <% @topic.messages.each do |message| %>
-          <%= render "messages/message", message: message %>
-        <% end %>
+        <%= render "messages/messages", messages: @topic.messages.last(8) %>
       </div>
 
       <%= simple_form_for [ @topic, @message ], remote: true do |f| %>
