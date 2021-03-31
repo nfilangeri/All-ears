@@ -1,33 +1,19 @@
 class MessagesController < ApplicationController
-    before_action :set_messages, only: [:create, :update, :destroy]
-
     def create
-        @message = Message.new(params_comment)
-        @message.topic = Topic.find(params[:topic_id])
+        @topic = Topic.find(params[:topic_id])
+        @message = Message.new(message_params)
+        @message.topic = @topic
         @message.user = current_user
         if @message.save
-            redirect_to messages_path
+            TopicChannel.broadcast_to(@topic, render_to_string(partial: "message", locals: { message: @message }))
+        else
+            render "topics/show"
         end
     end
-
-    def update
-        @message.update(params_message)
-        if @message.save
-            redirect_to topic_path
-        end
-    end
-
-    def destroy
-        @message.destroy
-        redirect_to topic_path
-    end
-
+    
     private
-
-    def params_message
-        params.require(:message).permit(:content, :user, :topic)
-    end
-    def set_message
-        @message = Message.find(params[:id])
+    
+    def message_params
+        params.require(:message).permit(:content)
     end
 end

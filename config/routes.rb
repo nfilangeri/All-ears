@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   resources :ratings, only: :update
   resources :users, only: :show
   resources :topics, except: :edit do
-    resources :messages, only: [:create, :update, :destroy]
+    resources :messages, only: [:show, :create, :update, :destroy]
   end
 end

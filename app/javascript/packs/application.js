@@ -20,11 +20,11 @@ ActiveStorage.start()
 
 // External imports
 import "bootstrap";
-
+import { initTopicCable} from "../channels/topic_channel"
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initTopicCable();
 });
