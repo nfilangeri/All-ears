@@ -1,5 +1,6 @@
 class CommentPolicy < ApplicationPolicy
   class Scope < Scope
+
     def resolve
       scope.all
     end
@@ -8,8 +9,8 @@ class CommentPolicy < ApplicationPolicy
   def update?
     record.user == user
   end
-  
+
   def destroy?
-    user.admin || record.user == user
+   user.admin == true || record.user == user
   end
 end

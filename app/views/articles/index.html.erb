@@ -1,14 +1,19 @@
-<div class="container">
-  <%@articles.each do |article|%>
-    <%= link_to article.title, article_path(article)%>
-    <%= article.publication_date %>
-    <%= article.newspaper.tag_political %>
-    <% if policy(Article).destroy? %>
-      <%= link_to "Delete article", article_path(article), method: :delete, data: { confirm: "Delete article?" } %>
-    <% end %>
+<div class="index">
+<div class="first-two">
+  <%@articles.first(2).each do |article|%>
+    <div class="each-first-column">
+      <%= image_tag "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=606&q=80", class: "card-photo" %>
+      <h4><p><%= link_to article.title, article_path(article)%></p></h4>
+      <%= article.publication_date %>
+      <%= article.newspaper.tag_political %>
+      <% if policy(Article).destroy? %>
+        <%= link_to "Delete article", article_path(article), method: :delete, data: { confirm: "Delete article?" } %>
+      <% end %>
+  </div>
+
   <% end %>
 </div>
-
+</div>
 
 
 

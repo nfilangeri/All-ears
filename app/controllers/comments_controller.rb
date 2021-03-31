@@ -7,20 +7,24 @@ class CommentsController < ApplicationController
         @comment.article = @article
         @comment.user = current_user
         if @comment.save
-            redirect_to article_path(@article), anchor: "comment-#{@comment.id}"
+            redirect_to article_path(@article, anchor: "comment-#{@comment.id}")
         end
     end
 
     def update
+        authorize @comment
+        article = @comment.article
         @comment.update(params_comment)
         if @comment.save
-            redirect_to article_path
+            redirect_to article_path(article)
         end
     end
 
     def destroy
-        @comment.destroy
-        redirect_to article_path
+      authorize @comment
+      article = @comment.article
+      @comment.destroy
+      redirect_to article_path(article)
     end
 
     private

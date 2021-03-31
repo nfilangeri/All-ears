@@ -58,6 +58,9 @@
           | <%= distance_of_time_in_words(Time.now -  comment.created_at) + ' ago' %>
           <br>
           <%= comment.content %>
+          <% if policy(comment).destroy? %>
+            <%= link_to "Delete comment", article_comment_path(@article, comment), method: :delete, data: { confirm: "Delete comment?" } %>
+         <% end %>
         </li>
       </ol>
       <% end %>
@@ -66,7 +69,7 @@
       <div class="leave-comment">
         <h3><strong>Share your own views!</strong></h3>
         <div class="form-for-comment">
-        <%= simple_form_for([ @article, @comment ], remote: true) do |f| %>
+        <%= simple_form_for([ @article, @comment ]) do |f| %>
           <%= f.input :content, label: false, hint: 'Max 500 words', placeholder: 'Your comment' %>
           <%= f.submit "Submit comment", class: "btn btn-ghost" %>
         <% end %>

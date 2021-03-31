@@ -11,6 +11,7 @@ class MessagesController < ApplicationController
     end
 
     def update
+        authorize @message
         @message.update(params_message)
         if @message.save
             redirect_to topic_path
@@ -18,6 +19,7 @@ class MessagesController < ApplicationController
     end
 
     def destroy
+        authorize @message
         @message.destroy
         redirect_to topic_path
     end
