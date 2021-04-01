@@ -2,7 +2,15 @@ class ArticlesController < ApplicationController
   before_action :set_articles, only: [:show, :create, :destroy]
 
   def index
-    @articles = Article.all
+
+    if params[:query].present?
+      #go get all newspapers and iterate over each newspaper
+      #on each newspaper, go and get_articles of params[:query]
+      #push that into @articles
+      @articles = Article.search_full_text(params[:query])
+    else
+      @articles = Article.all
+    end
   end
 
   def show
