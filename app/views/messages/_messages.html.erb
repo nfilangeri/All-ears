@@ -1,4 +1,7 @@
 <% messages.last(5).each do |message| %>
+  <%# <% if message.user == current_user %>
+    <%# <div class="me">
+     %> %>
   <div class="message-container" id="message-<%= message.id %>">
     <i class="author">
       <span><%= message.user.username %></span>
