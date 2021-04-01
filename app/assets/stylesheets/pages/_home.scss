@@ -1,10 +1,6 @@
 // Specific CSS for your home-page
-html {
-  height: 100%;
-  background-color: #1c1c1c;
-}
 
-body {
+.logo {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,7 +8,9 @@ body {
   overflow: hidden;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 250px;
+  height: 80vh;
+  padding-bottom: 200px;
+  padding-right: 150px
 }
 
 .perspective-text {

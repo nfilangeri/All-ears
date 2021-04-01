@@ -49,12 +49,29 @@ end
 
 puts "creating newspapers"
 
-    newspaper = Newspaper.new(
+    bbc = Newspaper.new(
         name:"BBC",
         tag_political:"Left",
         engine: "8957896738330692472"
     )
-    newspaper.save!
+    bbc.save!
+
+    blaze = Newspaper.new(
+        name:"Blaze",
+        tag_political:"Right",
+        engine: "6595108181234941560"
+    )
+    blaze.save!
+
+    bloomberg = Newspaper.new(
+        name:"Bloomberg",
+        tag_political:"Center",
+        engine: "3299184240765840895"
+    )
+    bloomberg.save!
+
+    huff
+
 
 puts "creating articles"
 
@@ -64,7 +81,7 @@ puts "creating articles"
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lorem quam, malesuada in ante pretium, molestie finibus nisl. Phasellus ultrices leo quis tempus placerat. Donec ligula tortor, sodales mollis sapien quis, vulputate lobortis risus. Quisque tempus aliquam sapien, eu iaculis risus. Duis in elit elementum tortor iaculis euismod eget ut lorem. Aliquam erat volutpat. Suspendisse non ex et dolor gravida elementum sit amet vel ipsum. Nam maximus volutpat tempor. Etiam dapibus, lectus et pellentesque venenatis, metus turpis ornare dolor, eu mollis erat urna in lorem. Phasellus gravida mollis elit, a vestibulum nisl fermentum et.",
         writers_name: Faker::Book.author,
         publication_date:Faker::Date.between(from: '2020-09-23', to: '2021-01-25'),
-        newspaper: newspaper
+        newspaper: bbc
     )
     article.save!
 end
