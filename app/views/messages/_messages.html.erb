@@ -1,17 +1,4 @@
 <% messages.last(5).each do |message| %>
-<<<<<<< HEAD
-  <%# <% if message.user == current_user %>
-    <%# <div class="me">
-     %> %>
-  <div class="message-container" id="message-<%= message.id %>">
-    <i class="author">
-      <span><%= message.user.username %></span>
-      <small>    <%= distance_of_time_in_words(Time.now -  message.created_at) + ' ago' %></small>
-    </i>
-    <p><%= message.content %></p>
-  </div>
-<% end %>
-=======
   <div class="box">
       <% if message.user == current_user %>
         <div class="me" id="me">
@@ -20,7 +7,7 @@
               <span><%= message.user.username %></span>
               <small>    <%= distance_of_time_in_words(Time.now -  message.created_at) + ' ago' %></small>
             </i>
-            <p><%= message.content %></p>
+            <p id="p-topic"><%= message.content %></p>
           </div>
       <% else %>
         <div class="other" id="other">
@@ -29,10 +16,10 @@
               <span><%= message.user.username %></span>
               <small>    <%= distance_of_time_in_words(Time.now -  message.created_at) + ' ago' %></small>
             </i>
-            <p><%= message.content %></p>
+            <p id="p-topic"><%= message.content %></p>
           </div>
       <% end %>
     </div>
+    </div>
     <% end %>
   </div>
->>>>>>> 29163f40875ec1b5567b2ea303f0e55c13550ce8
