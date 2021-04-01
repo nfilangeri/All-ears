@@ -5,17 +5,31 @@
         <div class="article-title">
           <h1><%= @article.title %></h1>
         </div>
-        <div class="overall-rating-and-political-tag">
+        <%# <div class="overall-rating-and-political-tag">
           <% average_rating = 0 %>
-          <% if @article.ratings.present? %>
-            <% @article.ratings.each do|political| %>
-              <% average_rating += political.rating %>
-            <% end %>
-            <span class="btn btn-ghost-circle"><%= average_rating / @article.ratings.size %>% objective</span>
-          <% end %>
-          <%= @article.newspaper.tag_political %>
+          <%# <% if @article.ratings.present? %>
+            <%# <% @article.ratings.each do|political| %>
+              <%# <% average_rating += political.rating %>
+            <%# <% end %>
+            <%# <span class="btn btn-ghost-circle"><%= average_rating / @article.ratings.size% objective</span> %>
+          <%# <% end %>
+          <%# <%= @article.newspaper.tag_political %>
+        <%# </div> %>
+          <div class="row">
+              <div class="col-md-3 col-sm-6">
+                  <div class="progress blue">
+                      <span class="progress-left">
+                          <span class="progress-bar"></span>
+                      </span>
+                      <span class="progress-right">
+                          <span class="progress-bar"></span>
+                      </span>
+                      <div class="inner-circle"></div>
+                      <div class="progress-value"><span>40</span>%</div>
+                  </div>
+              </div>
+          </div>
         </div>
-      </div>
 
       <div class="article-date-writer">
         <div>
