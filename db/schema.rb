@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_31_144954) do
+ActiveRecord::Schema.define(version: 2021_04_01_114143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,7 +53,9 @@ ActiveRecord::Schema.define(version: 2021_03_31_144954) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "image"
     t.string "description"
+    t.bigint "search_id", null: false
     t.index ["newspaper_id"], name: "index_articles_on_newspaper_id"
+    t.index ["search_id"], name: "index_articles_on_search_id"
   end
 
   create_table "chatrooms", force: :cascade do |t|
@@ -90,6 +92,15 @@ ActiveRecord::Schema.define(version: 2021_03_31_144954) do
     t.string "engine"
   end
 
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable"
+  end
+
   create_table "ratings", force: :cascade do |t|
     t.integer "rating"
     t.bigint "article_id", null: false
@@ -98,6 +109,12 @@ ActiveRecord::Schema.define(version: 2021_03_31_144954) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["article_id"], name: "index_ratings_on_article_id"
     t.index ["user_id"], name: "index_ratings_on_user_id"
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.string "query"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "topics", force: :cascade do |t|
@@ -131,6 +148,7 @@ ActiveRecord::Schema.define(version: 2021_03_31_144954) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "articles", "newspapers"
+  add_foreign_key "articles", "searches"
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
   add_foreign_key "messages", "topics"

@@ -1,70 +1,76 @@
 <div class="form-inline">
   <%= form_tag articles_path, method: :get do %>
   <%= text_field_tag :query,
-              params[:query],
-          class: "form-control",
-          placeholder: "News topic"%>
-          <%= submit_tag "Find now!", class: "btn btn-ghost" %>
+  params[:query],
+  class: "form-control",
+    placeholder: "News topic"%>
+    <%= submit_tag "Search", class: "btn btn-ghost" %>
+    <% end %>
+  </div>
+  <div class="index-all">
+    <div id="first-row">
+      <div class="first-2">
+        <% @articles.first(2).each do |article|%>
+        <div class="each-card">
+          <%= image_tag "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=606&q=80", width:370, height:200 %>
+          <h3><%= link_to article.title, article_path(article)%></h3>
+          <p><%= article.description%></p>
+          <p>
+            <%= article.publication_date %>
+            <%= article.newspaper.tag_political %>
+          </p>
+          <% if policy(Article).destroy? %>
+          <%= link_to "Delete article", article_path(article), method: :delete, data: { confirm: "Delete article?" } %>
           <% end %>
-<div class="index-all">
-  <div id="first-row">
-    <div class="first-2">
-      <% @articles.first(2).each do |article|%>
-      <div class="each-card">
-        <%= image_tag "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=606&q=80", width:350, height:200 %>
-        <p><%= link_to article.title, article_path(article)%></p>
-        <p>
-          <%= article.publication_date %>
-          <%= article.newspaper.tag_political %>
-        </p>
-        <% if policy(Article).destroy? %>
-        <%= link_to "Delete article", article_path(article), method: :delete, data: { confirm: "Delete article?" } %>
+        </div>
         <% end %>
       </div>
-      <% end %>
-    </div>
-    <div class="third">
-      <% article_3 = @articles[3] %>
-      <div class="middle-card">
-        <%= image_tag "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=606&q=80", width:500, height:350 %>
-        <h2><%= link_to article_3.title, article_path(article_3)%></h2>
-        <p>
-          <%= article_3.publication_date %>
-          <%= article_3.newspaper.tag_political %>
-        </p>
-        <% if policy(Article).destroy? %>
-        <%= link_to "Delete article", article_path(article_3), method: :delete, data: { confirm: "Delete article?" } %>
-        <% end %>
+      <div class="third">
+        <% article_3 = @articles[3] %>
+        <div class="middle-card">
+          <%= image_tag "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=606&q=80", width:500, height:350 %>
+          <h1><%= link_to article_3.title, article_path(article_3)%></h1>
+          <p><%= article_3.description %></p>
+          <p>
+            <%= article_3.publication_date %>
+            <%= article_3.newspaper.tag_political %>
+          </p>
+          <% if policy(Article).destroy? %>
+          <%= link_to "Delete article", article_path(article_3), method: :delete, data: { confirm: "Delete article?" } %>
+          <% end %>
+        </div>
       </div>
-    </div>
-    <div class="right-2">
-      <div class="each-card">
-        <% article_4 = @articles[4] %>
-        <%= image_tag "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=606&q=80", width:350, height:200 %>
-        <p><%= link_to article_4.title, article_path(article_4)%></p>
-        <p>
-          <%= article_4.publication_date %>
-          <%= article_4.newspaper.tag_political %>
-        </p>
-        <% if policy(Article).destroy? %>
-        <%= link_to "Delete article", article_path(article_4), method: :delete, data: { confirm: "Delete article?" } %>
-        <% end %>
-      </div>
-      <div class="each-card">
-        <% article_5 = @articles[5] %>
-        <%= image_tag "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=606&q=80", width:350, height:200 %>
-        <p><%= link_to article_5.title, article_path(article_5)%></p>
-        <p>
-          <%= article_5.publication_date %>
-          <%= article_5.newspaper.tag_political %>
-        </p>
-        <% if policy(Article).destroy? %>
-        <%= link_to "Delete article", article_path(article_5), method: :delete, data: { confirm: "Delete article?" } %>
-        <% end %>
+      <div class="right-2">
+        <div class="each-card">
+          <% article_4 = @articles[4] %>
+          <%= image_tag "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=606&q=80", width:370, height:200 %>
+          <h3><%= link_to article_4.title, article_path(article_4)%></h3>
+          <p><%= article_4.description%></p>
+          <p>
+            <%= article_4.publication_date %>
+            <%= article_4.newspaper.tag_political %>
+          </p>
+          <% if policy(Article).destroy? %>
+          <%= link_to "Delete article", article_path(article_4), method: :delete, data: { confirm: "Delete article?" } %>
+          <% end %>
+        </div>
+        <div class="each-card">
+          <% article_5 = @articles[5] %>
+          <%= image_tag "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=606&q=80", width:370, height:200 %>
+          <h3><%= link_to article_5.title, article_path(article_5)%></h3>
+          <p><%= article_5.description%></p>
+          <p>
+            <%= article_5.publication_date %>
+            <%= article_5.newspaper.tag_political %>
+          </p>
+          <% if policy(Article).destroy? %>
+          <%= link_to "Delete article", article_path(article_5), method: :delete, data: { confirm: "Delete article?" } %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
 
 
 

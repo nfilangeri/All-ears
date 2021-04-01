@@ -70,7 +70,6 @@ puts "creating newspapers"
     )
     bloomberg.save!
 
-    huff
 
 
 puts "creating articles"
@@ -79,6 +78,7 @@ puts "creating articles"
     article = Article.new(
         title: Faker::Book.title,
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lorem quam, malesuada in ante pretium, molestie finibus nisl. Phasellus ultrices leo quis tempus placerat. Donec ligula tortor, sodales mollis sapien quis, vulputate lobortis risus. Quisque tempus aliquam sapien, eu iaculis risus. Duis in elit elementum tortor iaculis euismod eget ut lorem. Aliquam erat volutpat. Suspendisse non ex et dolor gravida elementum sit amet vel ipsum. Nam maximus volutpat tempor. Etiam dapibus, lectus et pellentesque venenatis, metus turpis ornare dolor, eu mollis erat urna in lorem. Phasellus gravida mollis elit, a vestibulum nisl fermentum et.",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
         writers_name: Faker::Book.author,
         publication_date:Faker::Date.between(from: '2020-09-23', to: '2021-01-25'),
         newspaper: bbc
