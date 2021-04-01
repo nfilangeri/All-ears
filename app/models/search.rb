@@ -1,7 +1,8 @@
 class Search < ApplicationRecord
-  has_many :articles
+  has_many :articles, dependent: :destroy
 
   def image
-    articles.sample.image
+    @articles = Article.all
+    @articles.sample.image
   end
 end
