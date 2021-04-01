@@ -19,6 +19,41 @@
     border-bottom: 2px solid black;
     padding-bottom: 25px;
 }
-.string_optionnal {
-    font-style: italic;
+
+.me {
+    text-align: right;
+    background-color: rgb(240, 240, 240);;
+    border-radius: 5px;
+    width: 65%;
+    margin-left: 35%;
+}
+
+.other {
+    text-align: left;
+    background-color: rgb(214, 210, 210);
+    border-radius: 5px;
+    width: 65%;
+}
+
+.topic {
+    width: 30%;
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+        border-bottom: 2px solid black;
+    }
+}
+
+.box:last-child {
+    border-bottom: 1px solid black;
+}
+
+#new_message {
+    display: flex;
+    justify-content: center;
+    div {
+        width: 65%;
+        text-align: center;
+        font-style: italic;
+    }    
 }
