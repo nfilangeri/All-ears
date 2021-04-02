@@ -21,23 +21,25 @@
                   <div class="row">
                     <div class="col-lg-6 mb-4">
                       <h6 class="font-weight-bold text-uppercase">Sections</h6>
-                      <ul class="list-unstyled">
-                        <li class="nav-item"><a href="" class="nav-link text-small pb-0">Health</a></li>
-                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Global</a></li>
-                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Science</a></li>
-                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Politics</a></li>
-                      </ul>
+                      <div class="menu-display">
+                        <ul class="list-unstyled">
+                          <li class="nav-item"><a href="" class="nav-link text-small pb-0">Health</a></li>
+                          <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Global</a></li>
+                          <li class="nav-item"><a href="https://all-ears-open.herokuapp.com/searches/22" class="nav-link text-small pb-0 ">Science</a></li>
+                          <li class="nav-item"><a href="https://all-ears-open.herokuapp.com/searches/21" class="nav-link text-small pb-0 ">Politics</a></li>
+                        </ul>
+                      <div class="col-lg-6 mb-4">
+                        <h6 class="font-weight-bold text-uppercase"></h6>
+                        <ul class="list-unstyled">
+                          <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Education</a></li>
+                          <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Culture</a></li>
+                          <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Crypto</a></li>
+                          <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">People</a></li>
+                        </ul>
+                      </div>
+                      </div>
                     </div>
-                    <div class="col-lg-6 mb-4">
-                      <h6 class="font-weight-bold text-uppercase">Sections</h6>
-                      <ul class="list-unstyled">
-                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Education</a></li>
-                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Culture</a></li>
-                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Crypto</a></li>
-                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">People</a></li>
-                      </ul>
-                    </div>
-                    <div class="col-lg-6 mb-4">
+                    <%# <div class="col-lg-6 mb-4">
                       <h6 class="font-weight-bold text-uppercase">Paar</h6>
                       <ul class="list-unstyled">
                         <li class="nav-item"><a href="" class="nav-link text-small pb-0 "></a></li>
@@ -47,24 +49,24 @@
                       </ul>
                     </div>
                     <div class="col-lg-6 mb-4">
-                      <h6 class="font-weight-bold text-uppercase">Sections</h6>
+                      <h6 class="font-weight-bold text-uppercase"></h6>
                       <ul class="list-unstyled">
                         <li class="nav-item"><a href="" class="nav-link text-small pb-0 "></a></li>
                         <li class="nav-item"><a href="" class="nav-link text-small pb-0 "></a></li>
                         <li class="nav-item"><a href="" class="nav-link text-small pb-0 "></a></li>
                         <li class="nav-item"><a href="" class="nav-link text-small pb-0 "></a></li>
-                      </ul>
-                    </div>
+                      </ul> %>
+                    <%# </div> %>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-5 col-xl-4 px-0 d-none d-lg-block" style="background: center center url(https://res.cloudinary.com/mhmd/image/upload/v1556990826/mega_bmtcdb.png)no-repeat; background-size: cover;"></div>
+              <div class="col-lg-5 col-xl-4 px-0 d-none d-lg-block" style="background: center center url(https://images.unsplash.com/photo-1615403916271-e2dbc8cf3bf4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80)no-repeat; background-size: cover;"></div>
             </div>
           </div>
         </div>
       </li>
-      <li class="nav-item"><a href="" class="nav-link font-weight-bold text-uppercase">About</a></li>
-      <li class="nav-item"><a href="" class="nav-link font-weight-bold text-uppercase">Services</a></li>
+      <li class="nav-item"><a href="https://all-ears-open.herokuapp.com/topics" class="nav-link font-weight-bold text-uppercase">Topics</a></li>
+      <%# <li class="nav-item"><a href="" class="nav-link font-weight-bold text-uppercase">Services</a></li> %>
       <li class="nav-item"><a href="" class="nav-link font-weight-bold text-uppercase">Contact</a></li>
 
 
@@ -76,16 +78,16 @@
 
   <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
   </div>
-   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto align-items-center">
-      <li class="nav-item dropdown">
-        <% if user_signed_in? %>
-          <li>
-            <%= link_to'Logout', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </li>
-        <% end %>
-        </div>
-      </li>
-    </ul>
-  </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto align-items-center">
+        <li class="nav-item dropdown">
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to'Logout', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </li>
+          <% end %>
+          </div>
+        </li>
+      </ul>
+    </div>
 </nav>

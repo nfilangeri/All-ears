@@ -8,6 +8,23 @@
   width: 100%;
 }
 
+body > nav {
+  margin-bottom: 25px;
+}
+
+#navbarContent > ul > li.nav-item.dropdown.megamenu.show > div > div > div {
+  width: 50%;            //size of the dropdown
+}
+
+.menu-display {
+  display: flex;
+}
+
+#navbarContent > ul > li.nav-item.dropdown.megamenu.show > div > div > div > div.col-lg-7.col-xl-8 > div > div > div > div > ul {
+  padding-top: 8px;
+  padding-right: 80px;
+}
+
 .fa-acquisitions-incorporated {
   color: black;
 }
