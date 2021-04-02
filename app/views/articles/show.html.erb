@@ -5,44 +5,35 @@
         <div class="article-title">
           <h1><%= @article.title %></h1>
         </div>
-        <%# <div class="overall-rating-and-political-tag">
-          <% average_rating = 0 %>
-          <%# <% if @article.ratings.present? %>
-            <%# <% @article.ratings.each do|political| %>
-              <%# <% average_rating += political.rating %>
-            <%# <% end %>
-            <%# <span class="btn btn-ghost-circle"><%= average_rating / @article.ratings.size% objective</span> %>
-          <%# <% end %>
-          <%# <%= @article.newspaper.tag_political %>
-        <%# </div> %>
-          <div class="row">
-              <div class="col-md-3 col-sm-6">
-                  <div class="progress blue">
-                      <span class="progress-left">
-                          <span class="progress-bar"></span>
-                      </span>
-                      <span class="progress-right">
-                          <span class="progress-bar"></span>
-                      </span>
-                      <div class="inner-circle"></div>
-                      <div class="progress-value"><span>40</span>%</div>
-                  </div>
-              </div>
-          </div>
+          <% if @article.ratings.present? %>
+            <% @article.ratings.each do|political| %>
+              <% average_rating += political.rating %>
+            <% end %>
+            <span class="btn btn-ghost-circle"><%= average_rating / @article.ratings.size %>% objective</span>
+          <% end %>
+          <% if @article.newspaper.tag_political == "Left" %>
+            <i class="far fa-hand-point-left"></i>
+          <% elsif @article.newspaper.tag_political == "Right" %>
+            <i class="far fa-hand-point-right"></i>
+          <% elsif @article.newspaper.tag_political == "Center" %>
+            <i class="far fa-hand-point-up"></i>
+          <% end %>
         </div>
         <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">See comments</button>
       </div>
-
-
-
-
       <div class="article-date-writer">
         <div>
           <em><%= @article.writers_name %></em>
           <%= @article.publication_date.to_date.to_formatted_s :long_ordinal %>
         </div>
       <div>
-        <%= @article.newspaper.name %>
+        <% if @article.newspaper.name == "BBC" %>
+          <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/BBC_News_2019.svg/1200px-BBC_News_2019.svg.png", width: 50, height: 50 %>
+        <% elsif @article.newspaper.name == "blaze" %>
+          <%= image_tag "https://store-images.s-microsoft.com/image/apps.26932.13510798886188669.8a1a5090-bec9-4e2a-9e9a-50dd4a2350e1.7ff77348-ba21-4bb0-a72a-d69082546053?mode=scale&q=90&h=200&w=200&background=white", width:50, height:50 %>
+        <% elsif @article.newspaper.name == "bloomber" %>
+          <%= image_tag "https://media-exp1.licdn.com/dms/image/C4E0BAQGAH_i8FRg-uw/company-logo_200_200/0/1525302924134?e=2159024400&v=beta&t=U1yKFoI6RVpZcBafGELtrieAkRf2cPBRQHw_1Ss6aBc", width:50, height:50 %>
+        <% end %>
       </div>
     </div>
     </div>

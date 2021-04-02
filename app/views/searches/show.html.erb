@@ -1,3 +1,34 @@
-<% @search.articles.each do |article| %>
-<%= article.title %>
-<% end %>
+<div class="title-card-sections">
+  <h1 class="text-center mb-4">All the sides of the <%= @search.query %> narrative</h1>
+</div>
+<div class="all-articles-results">
+  <% @search.articles.each do |article| %>
+    <div class="card-product">
+        <%= image_tag article.get_thumbnail %>
+      <div class="card-product-infos">
+        <h2> <%= link_to article.title, article_path(article) %></h2>
+        <p><%= article.description.first(180) %></p>
+      </div>
+      <div class="card-product-tag d-flex">
+        <% if article.newspaper.tag_political == "Lean Left" %>
+          <i class="far fa-hand-point-left"></i>
+        <% elsif article.newspaper.tag_political == "Lean Right" %>
+          <i class="far fa-hand-point-right"></i>
+        <% elsif article.newspaper.tag_political == "Center" %>
+          <i class="far fa-hand-point-up"></i>
+        <% elsif article.newspaper.tag_political == "Hard Right" %>
+          <i class="far fa-hand-point-right"></i>
+          <i class="far fa-hand-point-right"></i>
+        <% elsif article.newspaper.tag_political == "Hard Left" %>
+          <i class="far fa-hand-point-left"></i><i class="far fa-hand-point-left"></i>
+        <% elsif article.newspaper.tag_political == "Center - Financial" %>
+          <i class="fas fa-dollar-sign"></i>
+          <i class="far fa-hand-point-up"></i>
+        <% elsif article.newspaper.tag_political == "Lean Left - Financial" %>
+          <i class="fas fa-dollar-sign"></i>
+          <i class="far fa-hand-point-left"></i>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

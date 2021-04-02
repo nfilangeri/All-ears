@@ -1,6 +1,6 @@
 <div class="d-flex row justify-content-center" id="chat">
   <div class="topic">
-    <h1><%= @topic.subject %></h1>
+    <h3 class="mb-3">Share what you think with the others </h3>
 
     <div>
       <div id="messages" data-topic-id="<%= @topic.id %>">
@@ -8,7 +8,7 @@
       </div>
 
       <%= simple_form_for [ @topic, @message ], remote: true do |f| %>
-        <%= f.input :content, as: :string , label: "leave a comment"  %>
+        <%= f.input :content, as: :string , label: "Leave a comment"  %>
       <% end %>
     </div>
   </div>
