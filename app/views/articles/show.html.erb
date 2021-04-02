@@ -3,90 +3,104 @@
     <div class="article-info">
       <div class="article-political">
         <div class="article-title">
-          <h1><%= @article.title %></h1>
+          <h1 class="mb-3"><%= @article.title %></h1>
+          <%= image_tag @article.image, width:700, height:400 %>
         </div>
         <div class="overall-rating-and-political-tag">
           <% average_rating = 0 %>
           <% if @article.ratings.present? %>
-            <% @article.ratings.each do|political| %>
-              <% average_rating += political.rating %>
-            <% end %>
-            <span class="btn btn-ghost-circle"><%= average_rating / @article.ratings.size %>% objective</span>
+          <% @article.ratings.each do|political| %>
+          <% average_rating += political.rating %>
           <% end %>
-          <% if @article.newspaper.tag_political == "Left" %>
-            <i class="far fa-hand-point-left"></i>
-          <% elsif @article.newspaper.tag_political == "Right" %>
-            <i class="far fa-hand-point-right"></i>
-          <% elsif @article.newspaper.tag_political == "Center" %>
-            <i class="far fa-hand-point-up"></i>
+          <span class="btn btn-ghost-circle"><%= average_rating / @article.ratings.size %>% objective</span>
           <% end %>
         </div>
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">See comments</button>
+        <div class="political-newspaper-img">
+          <% if @article.newspaper.tag_political == "Lean Left" %>
+          <i class="far fa-hand-point-left"></i>
+          <% elsif @article.newspaper.tag_political == "Lean Right" %>
+          <i class="far fa-hand-point-right"></i>
+          <% elsif @article.newspaper.tag_political == "Center" %>
+          <i class="far fa-hand-point-up"></i>
+          <% elsif @article.newspaper.tag_political == "Hard Right" %>
+          <i class="far fa-hand-point-right"></i>
+          <i class="far fa-hand-point-right"></i>
+          <% elsif @article.newspaper.tag_political == "Hard Left" %>
+          <i class="far fa-hand-point-left"></i><i class="far fa-hand-point-left"></i>
+          <% elsif @article.newspaper.tag_political == "Center - Financial" %>
+          <i class="fas fa-dollar-sign"></i>
+          <i class="far fa-hand-point-up"></i>
+          <% elsif @article.newspaper.tag_political == "Lean Left - Financial" %>
+          <i class="fas fa-dollar-sign"></i>
+          <i class="far fa-hand-point-left"></i>
+          <% end %>
+          <div>
+            <%= image_tag @article.newspaper.image, width:50, height:50 %>
+          </div>
+        </div>
       </div>
       <div class="article-date-writer">
         <div>
-          <em><%= @article.writers_name %></em>
-          <%= @article.publication_date.to_date.to_formatted_s :long_ordinal %>
+          <em><%= @article.publication_date.to_date.to_formatted_s :long_ordinal %></em>
+          <em><p class="mt-3"><%= @article.description %></p></em>
+
         </div>
-      <div>
-        <% if @article.newspaper.name == "BBC" %>
-          <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/BBC_News_2019.svg/1200px-BBC_News_2019.svg.png", width: 50, height: 50 %>
-        <% elsif @article.newspaper.name == "blaze" %>
-          <%= image_tag "https://store-images.s-microsoft.com/image/apps.26932.13510798886188669.8a1a5090-bec9-4e2a-9e9a-50dd4a2350e1.7ff77348-ba21-4bb0-a72a-d69082546053?mode=scale&q=90&h=200&w=200&background=white", width:50, height:50 %>
-        <% elsif @article.newspaper.name == "bloomber" %>
-          <%= image_tag "https://media-exp1.licdn.com/dms/image/C4E0BAQGAH_i8FRg-uw/company-logo_200_200/0/1525302924134?e=2159024400&v=beta&t=U1yKFoI6RVpZcBafGELtrieAkRf2cPBRQHw_1Ss6aBc", width:50, height:50 %>
-        <% end %>
       </div>
-    </div>
     </div>
     <div class="new-rating">
       <% if user_signed_in?%>
-        <h5><strong>Place on a scale!</strong></h5>
-        <div class="form-rating">
-          <%= simple_form_for([ @article, @rating ]) do |f| %>
-            <%= f.input :rating, label: "From subjective to objective", as: :range, collection: 1..100 %>
-            <%= f.submit "Submit rating", class: "btn btn-ghost", id: "submit-rating" %>
-          <% end %>
-      </div>
-      <% else %>
-        <%= link_to "Login to leave a rating",  new_user_session_path %>
-     <% end %>
-     </div>
-        <div class="rating-thank-you">
-          <h3>Thank you for rating!</h3>
-        </div>
-
-    </div>
-  <div class="article-content">
-    <%= @article.content %>
-  </div>
-  <div class="comments">
-    <% if @article.comments.present? %>
-      <h3><strong>Comments (<%= @article.comments.count %>)</strong></h3>
-      <% @article.comments.each do |comment| %>
-      <ol>
-        <li class="list-group-item mt-3 mb-3" id="comment-<%= comment.id %>">
-          <strong><%= comment.user.username %></strong>
-          | <%= distance_of_time_in_words(Time.now -  comment.created_at) + ' ago' %>
-          <br>
-          <%= comment.content %>
-        </li>
-      </ol>
-      <% end %>
-    <% end %>
-    <% if user_signed_in? %>
-      <div class="leave-comment">
-        <h3><strong>Share your own views!</strong></h3>
-        <div class="form-for-comment">
-        <%= simple_form_for([ @article, @comment ], remote: true) do |f| %>
-          <%= f.input :content, label: false, hint: 'Max 500 words', placeholder: 'Your comment' %>
-          <%= f.submit "Submit comment", class: "btn btn-ghost" %>
+      <h5><strong>Place on a scale!</strong></h5>
+      <div class="form-rating">
+        <%= simple_form_for([ @article, @rating ]) do |f| %>
+        <%= f.input :rating, label: "From subjective to objective", as: :range, collection: 1..100 %>
+        <%= f.submit "Submit rating", class: "btn btn-ghost", id: "submit-rating" %>
         <% end %>
       </div>
       <% else %>
-        <%= link_to "Login to leave a comment",  new_user_session_path %>
+      <%= link_to "Login to leave a rating",  new_user_session_path %>
       <% end %>
+    </div>
+    <div class="rating-thank-you">
+      <h3>Thank you for rating!</h3>
+    </div>
+
+  </div>
+  <div class="article-content">
+    <% content = @article.content %>
+    <% content = content.remove('e-mail', 'by') %>
+    <%= content.split("\n").each do |paragraph| %>
+    <p>
+      <%= paragraph %>
+    </p>
+    <% end %>
+  </div>
+  <div class="comments">
+    <% if @article.comments.present? %>
+    <h3><strong>Comments (<%= @article.comments.count %>)</strong></h3>
+    <% @article.comments.each do |comment| %>
+    <ol>
+      <li class="list-group-item mt-3 mb-3" id="comment-<%= comment.id %>">
+        <strong><%= comment.user.username %></strong>
+        | <%= distance_of_time_in_words(Time.now -  comment.created_at) + ' ago' %>
+        <br>
+        <%= comment.content %>
+      </li>
+    </ol>
+    <% end %>
+    <% end %>
+    <% if user_signed_in? %>
+    <div class="leave-comment">
+      <h3><strong>Share your own views!</strong></h3>
+      <div class="form-for-comment">
+        <%= simple_form_for([ @article, @comment ], remote: true) do |f| %>
+        <%= f.input :content, label: false, hint: 'Max 500 words', placeholder: 'Your comment' %>
+        <%= f.submit "Submit comment", class: "btn btn-ghost" %>
+        <% end %>
       </div>
+      <% else %>
+      <%= link_to "Login to leave a comment",  new_user_session_path %>
+      <% end %>
+    </div>
   </div>
 </div>
 
