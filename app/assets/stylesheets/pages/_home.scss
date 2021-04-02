@@ -34,6 +34,14 @@
     }
 }
 
+.perspective-line p {
+  margin: 0;
+  height: 50px;
+  line-height: 50px;
+  transition: all 0.5s ease-in-out;
+  color: white;
+}
+
 
 .perspective-line:nth-child(odd) {
   transform: skew(60deg, -30deg) scaleY(0.667);

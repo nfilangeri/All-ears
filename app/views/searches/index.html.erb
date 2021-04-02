@@ -1,0 +1,11 @@
+<div class="form-inline">
+  <%= simple_form_for @search do |t| %>
+    <%= t.input :query %>
+    <%= t.submit %>
+  <% end %>
+</div>
+
+<% @searches.each do |search| %>
+  <%= search.query %>
+  <%= image_tag search.image %>
+<% end %>
