@@ -1,6 +1,9 @@
 .index-all{
   width:1300px;
   margin-left:40px;
+      img {
+        object-fit: cover;
+      }
 }
 
 .first-2 {
@@ -14,6 +17,11 @@
   grid-template-columns: 1fr 2fr 1fr;
   grid-gap:20px;
   border-bottom: 1px solid #DBDBDB;
+  margin-bottom: 100px;
+      a {
+        text-decoration: none;
+        color: black;
+    }
 }
 
 .right-2 {
@@ -22,7 +30,6 @@
 }
 
 .middle-card {
-  border-right: 1px solid #DBDBDB;
   width: 520px;
 }
 
@@ -34,6 +41,7 @@
 }
 
 .third {
+  border-right: 1px solid #DBDBDB;
   padding-left: 20px;
   border-left: 1px solid #DBDBDB;
 }

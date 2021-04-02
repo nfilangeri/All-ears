@@ -1,12 +1,4 @@
-<div class="form-inline">
-  <%= form_tag articles_path, method: :get do %>
-  <%= text_field_tag :query,
-  params[:query],
-  class: "form-control",
-    placeholder: "News topic"%>
-    <%= submit_tag "Search", class: "btn btn-ghost" %>
-    <% end %>
-  </div>
+
   <div class="index-all">
     <div id="first-row">
       <div class="first-2">
@@ -19,9 +11,6 @@
             <%= article.publication_date %>
             <%= article.newspaper.tag_political %>
           </p>
-          <% if policy(Article).destroy? %>
-          <%= link_to "Delete article", article_path(article), method: :delete, data: { confirm: "Delete article?" } %>
-          <% end %>
         </div>
         <% end %>
       </div>
@@ -35,9 +24,6 @@
             <%= article_3.publication_date %>
             <%= article_3.newspaper.tag_political %>
           </p>
-          <% if policy(Article).destroy? %>
-          <%= link_to "Delete article", article_path(article_3), method: :delete, data: { confirm: "Delete article?" } %>
-          <% end %>
         </div>
       </div>
       <div class="right-2">
@@ -50,9 +36,6 @@
             <%= article_4.publication_date %>
             <%= article_4.newspaper.tag_political %>
           </p>
-          <% if policy(Article).destroy? %>
-          <%= link_to "Delete article", article_path(article_4), method: :delete, data: { confirm: "Delete article?" } %>
-          <% end %>
         </div>
         <div class="each-card">
           <% article_5 = @articles[5] %>
@@ -63,9 +46,6 @@
             <%= article_5.publication_date %>
             <%= article_5.newspaper.tag_political %>
           </p>
-          <% if policy(Article).destroy? %>
-          <%= link_to "Delete article", article_path(article_5), method: :delete, data: { confirm: "Delete article?" } %>
-          <% end %>
         </div>
       </div>
     </div>

@@ -12,6 +12,10 @@
 
 .whole-article-beggining{
   display: flex;
+      img {
+        object-fit: cover;
+        border-radius: 50%;
+      }
 }
 
 .article-political {
