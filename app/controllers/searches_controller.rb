@@ -1,6 +1,6 @@
 class SearchesController < ApplicationController
   def index
-
+    @searches = Search.all
     @search = Search.new
     @all_searches = Search.all.order(created_at: :desc)
     @searches = []
