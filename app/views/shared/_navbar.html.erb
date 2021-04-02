@@ -1,56 +1,81 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <svg>
-  <defs>
-    <filter id="gooeyness">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="2.2" result="blur" />
-      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -10" result="gooeyness" />
-      <feComposite in="SourceGraphic" in2="gooeyness" operator="atop" />
-    </filter>
-  </defs>
-  </svg>
-  <div class="plates">
-    <div class="plate plate1" onclick="this.classList.toggle('active')">
-      <svg class="burger" version="1.1" height="100" width="100" viewBox="0 0 100 100">
-        <path class="line line1" d="M 30,65 H 70"/>
-        <path class="line line2" d="M 70,50 H 30 C 30,50 18.644068,50.320751 18.644068,36.016949 C 18.644068,21.712696 24.988973,6.5812347 38.79661,11.016949 C 52.604247,15.452663 46.423729,62.711864 46.423729,62.711864 L 50.423729,49.152542 L 50.423729,16.101695"/>
-        <path class="line line3" d="M 30,35 H 70 C 70,35 80.084746,36.737688 80.084746,25.423729 C 80.084746,19.599612 75.882239,9.3123528 64.711864,13.559322 C 53.541489,17.806291 54.423729,62.711864 54.423729,62.711864 L 50.423729,49.152542 V 16.101695"/>
-      </svg>
-      <svg class="x" version="1.1" height="100" width="100" viewBox="0 0 100 100">
-        <path class="line" d="M 34,32 L 66,68" />
-        <path class="line" d="M 66,32 L 34,68" />
-      </svg>
-    </div>
-  </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
+  <a href="#" class="navbar-brand font-weight-bold d-block d-lg-none">MegaMenu</a>
+  <button type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+  <div id="navbarContent" class="collapse navbar-collapse">
+    <%=link_to (searches_path) do %>
+      <i class="fab fa-acquisitions-incorporated fa-3x"></i>
+    <%end %>
+
+    <ul class="navbar-nav mx-auto">
 
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+      <!-- Megamenu-->
+      <li class="nav-item dropdown megamenu"><a id="megamneu" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle font-weight-bold text-uppercase">Category</a>
+        <div aria-labelledby="megamneu" class="dropdown-menu border-0 p-0 m-0">
+          <div class="container">
+            <div class="row bg-white rounded-0 m-0 shadow-sm">
+              <div class="col-lg-7 col-xl-8">
+                <div class="p-4">
+                  <div class="row">
+                    <div class="col-lg-6 mb-4">
+                      <h6 class="font-weight-bold text-uppercase">Sections</h6>
+                      <ul class="list-unstyled">
+                        <li class="nav-item"><a href="" class="nav-link text-small pb-0">Health</a></li>
+                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Global</a></li>
+                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Science</a></li>
+                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Politics</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                      <h6 class="font-weight-bold text-uppercase">Sections</h6>
+                      <ul class="list-unstyled">
+                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Education</a></li>
+                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Culture</a></li>
+                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Crypto</a></li>
+                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">People</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                      <h6 class="font-weight-bold text-uppercase">Paar</h6>
+                      <ul class="list-unstyled">
+                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 "></a></li>
+                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 "></a></li>
+                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 "></a></li>
+                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 "></a></li>
+                      </ul>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                      <h6 class="font-weight-bold text-uppercase">Sections</h6>
+                      <ul class="list-unstyled">
+                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 "></a></li>
+                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 "></a></li>
+                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 "></a></li>
+                        <li class="nav-item"><a href="" class="nav-link text-small pb-0 "></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-5 col-xl-4 px-0 d-none d-lg-block" style="background: center center url(https://res.cloudinary.com/mhmd/image/upload/v1556990826/mega_bmtcdb.png)no-repeat; background-size: cover;"></div>
+            </div>
           </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
+        </div>
+      </li>
+      <li class="nav-item"><a href="" class="nav-link font-weight-bold text-uppercase">About</a></li>
+      <li class="nav-item"><a href="" class="nav-link font-weight-bold text-uppercase">Services</a></li>
+      <li class="nav-item"><a href="" class="nav-link font-weight-bold text-uppercase">Contact</a></li>
+
+
+
     </ul>
+    <%= simple_form_for @search, html:{class: "form-inline search-form"} do |t| %>
+      <%= t.input :query, label: false, placeholder:"What's your Topic ? ..." %>
+      <%= t.button :button, {class: 'button postfix'} do %><i class="fas fa-search"></i><% end %>
+    <% end %>
+
+
+  <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
   </div>
-</div>
-</div>
+</nav>
