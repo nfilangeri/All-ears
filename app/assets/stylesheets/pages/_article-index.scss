@@ -17,7 +17,7 @@
   grid-template-columns: 1fr 2fr 1fr;
   grid-gap:20px;
   border-bottom: 1px solid #DBDBDB;
-  margin-bottom: 100px;
+  margin-bottom: 20px;
       a {
         text-decoration: none;
         color: black;
@@ -44,4 +44,22 @@
   border-right: 1px solid #DBDBDB;
   padding-left: 20px;
   border-left: 1px solid #DBDBDB;
+}
+
+.second-row {
+  display:grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap:20px;
+  border-bottom: 1px solid #DBDBDB;
+  margin-bottom: 100px;
+}
+
+.fifth-sixth-seventh{
+  width: 620px;
+  border-right: 1px solid #DBDBDB;
+  margin-bottom:20px;
+}
+
+.ninth-tenth{
+  margin-bottom:20px;
 }

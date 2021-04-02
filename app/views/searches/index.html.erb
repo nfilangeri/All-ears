@@ -1,41 +1,87 @@
 
+<div class="form-inline">
+  <%= simple_form_for @search do |t| %>
+  <%= t.input :query %>
+  <%= t.submit %>
+  <% end %>
+</div>
+
 <h1 class="text-center mb-4">Explore what's trending today</h1>
 <div class="index-all">
-    <div id="first-row">
-      <div class="first-2">
-        <% search_1 = @searches.first %>
-        <div class="each-card">
-          <% if search_1.image.blank? %>
-            <%= image_tag "https://images.unsplash.com/photo-1566378246598-5b11a0d486cc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80", width:370, height:200 %>
-          <% else %>
-            <%= image_tag search_1.image, width:370, height:200 %>
-          <% end %>
-          <h3 class="text-center mt-3"><%= link_to search_1.query.capitalize, search_path(search_1)%></h3>
-        </div>
-        <% search_2 = @searches[1] %>
-        <div class="each-card">
-          <%= image_tag search_2.image, width:370, height:200 %>
-          <h3 class="text-center mt-3"><%= link_to search_2.query.capitalize, search_path(search_2)%></h3>
-        </div>
-    </div>
-     <div class="third">
-        <% search_3 = @searches[2] %>
-        <div class="middle-card">
-          <%= image_tag search_3.image, width:500, height:500 %>
-          <h3 class="text-center mt-3"><%= link_to search_3.query.capitalize, search_path(search_3)%></h3>
-        </div>
+  <%searches = @searches %>
+  <% search_1 = searches.first %>
+  <% search_2 = searches[1] %>
+  <% if search_1.present? && search_2.present? %>
+  <div id="first-row">
+    <div class="first-2">
+      <div class="each-card">
+        <%= image_tag search_1.image, width:370, height:200 %>
+        <h3 class="text-center mt-3"><%= link_to search_1.query.capitalize, search_path(search_1)%></h3>
       </div>
+      <div class="each-card">
+        <%= image_tag search_2.image, width:370, height:200 %>
+        <h3 class="text-center mt-3"><%= link_to search_2.query.capitalize, search_path(search_2)%></h3>
+      </div>
+    </div>
+    <% end %>
+    <div class="third">
+      <% search_3 = searches[2] %>
+      <% if search_3.present? %>
+      <div class="middle-card">
+        <%= image_tag search_3.image, width:500, height:500 %>
+        <h3 class="text-center mt-3"><%= link_to search_3.query.capitalize, search_path(search_3)%></h3>
+      </div>
+    </div>
+    <% end %>
     <div class="right-2">
-        <% search_4 = @searches[3] %>
-        <div class="each-card">
-          <%= image_tag search_4.image, width:370, height:200 %>
-          <h3 class="text-center mt-3"><%= link_to search_4.query.capitalize, search_path(search_4)%></h3>
-        </div>
-        <% search_5 = @searches[4] %>
-        <div class="each-card">
-          <%= image_tag search_5.image, width:370, height:200 %>
-          <h3 class="text-center mt-3"><%= link_to search_5.query.capitalize, search_path(search_5)%></h3>
-        </div>
+      <% search_4 = @searches[3] %>
+      <% if search_4.present? %>
+      <div class="each-card">
+        <%= image_tag search_4.image, width:370, height:200 %>
+        <h3 class="text-center mt-3"><%= link_to search_4.query.capitalize, search_path(search_4)%></h3>
+      </div>
+      <% end %>
+      <% search_5 = @searches[4] %>
+      <% if search_5.present? %>
+      <div class="each-card">
+        <%= image_tag search_5.image, width:370, height:200 %>
+        <h3 class="text-center mt-3"><%= link_to search_5.query.capitalize, search_path(search_5)%></h3>
+      </div>
+      <% end %>
     </div>
   </div>
+  <% search_8 = @searches[7] %>
+  <% search_7 = @searches[6] %>
+  <% search_6 = @searches[5] %>
+  <% search_9 = @searches[8] %>
+  <% search_10 = @searches[9] %>
+  <% if search_6.present? && search_7.present? && search_8.present? && search_9.present? && search_10.present? %>
+  <div class="second-row">
+    <div class="fifth-sixth-seventh">
+      <div class="second-card">
+        <%= image_tag search_6.image, width:600, height:300 %>
+        <h3 class="text-center mt-3"><%= link_to search_4.query.capitalize, search_path(search_6)%></h3>
+      </div>
+      <div class="second-card">
+        <%= image_tag search_7.image, width:600, height:300 %>
+        <h3 class="text-center mt-3"><%= link_to search_7.query.capitalize, search_path(search_7)%></h3>
+      </div>
+      <div class="second-card">
+        <%= image_tag search_8.image, width:600, height:300 %>
+        <h3 class="text-center mt-3"><%= link_to search_8.query.capitalize, search_path(search_8)%></h3>
+      </div>
+    </div>
+    <% end %>
+    <% if search_10.present? && search_9.present?%>
+    <div class="ninth-tenth">
+      <div class="big-eight-card">
+        <%= image_tag search_9.image, width:700, height:500 %>
+        <h3 class="text-center mt-3"><%= link_to search_9.query.capitalize, search_path(search_9)%></h3>
+      </div>
+      <div class="big-eight-card">
+        <%= image_tag search_10.image, width:700, height:500 %>
+        <h3 class="text-center mt-3"><%= link_to search_10.query.capitalize, search_path(search_10)%></h3>
+      </div>
+    </div>
+    <% end %>
   </div>
