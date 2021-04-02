@@ -1,7 +1,13 @@
 class SearchesController < ApplicationController
   def index
+
     @search = Search.new
-    @searches = Search.all
+    @all_searches = Search.all.order(created_at: :desc)
+    @searches = []
+    @all_searches.each do |search|
+      next if @searches.find {|s| s.query == search.query}
+      @searches << search
+    end
   end
 
   def create
