@@ -6,11 +6,10 @@
           <h1 class="mb-3"><%= @article.title %></h1>
           <%= image_tag @article.image, width:700, height:400 %>
         </div>
-        <div class="overall-rating-and-political-tag">
-          <% average_rating = 0 %>
           <% if @article.ratings.present? %>
-          <% @article.ratings.each do|political| %>
-          <% average_rating += political.rating %>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: <%= @article.avg_rating %>%;" aria-valuenow="<%= @article.avg_rating %>%" aria-valuemin="0" aria-valuemax="100"><%= @article.avg_rating %>%</div>
+            </div>
           <% end %>
           <span class="btn btn-ghost-circle"><%= average_rating / @article.ratings.size %>% objective</span>
           <% end %>
@@ -41,9 +40,9 @@
       </div>
       <div class="article-date-writer">
         <div>
-          <em><%= @article.publication_date.to_date.to_formatted_s :long_ordinal %></em>
-          <em><p class="mt-3"><%= @article.description %></p></em>
 
+          <em><%= @article.publication_date.to_date.to_formatted_s :long_ordinal  if @article.publication_date.present?%></em>
+          <em><p class="mt-3"><%= @article.description %></p></em>
         </div>
       </div>
     </div>
@@ -57,11 +56,15 @@
         <% end %>
       </div>
       <% else %>
-      <%= link_to "Login to leave a rating",  new_user_session_path %>
+
+      
+
+        <%= link_to "Login to leave a rating",  new_user_session_path %>
       <% end %>
-    </div>
-    <div class="rating-thank-you">
-      <h3>Thank you for rating!</h3>
+      </div>
+        <div class="rating-thank-you">
+          <h3>Thank you for rating!</h3>
+        </div>
     </div>
 
   </div>
@@ -89,9 +92,12 @@
     <% end %>
     <% end %>
     <% if user_signed_in? %>
+
     <div class="leave-comment">
       <h3><strong>Share your own views!</strong></h3>
       <div class="form-for-comment">
+
+      
         <%= simple_form_for([ @article, @comment ], remote: true) do |f| %>
         <%= f.input :content, label: false, hint: 'Max 500 words', placeholder: 'Your comment' %>
         <%= f.submit "Submit comment", class: "btn btn-ghost" %>
