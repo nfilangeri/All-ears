@@ -14,4 +14,8 @@ class Article < ApplicationRecord
   def get_thumbnail
     Faraday.head(image).status == 200 ? image : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/BBC_News_2019.svg/1200px-BBC_News_2019.svg.png"
   end
+
+  def avg_rating
+    ratings.map(&:rating).sum/ratings.count
+  end
 end
