@@ -6,10 +6,9 @@
           <h1><%= @article.title %></h1>
         </div>
           <% if @article.ratings.present? %>
-            <% @article.ratings.each do|political| %>
-              <% average_rating += political.rating %>
-            <% end %>
-            <span class="btn btn-ghost-circle"><%= average_rating / @article.ratings.size %>% objective</span>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: <%= @article.avg_rating %>%;" aria-valuenow="<%= @article.avg_rating %>%" aria-valuemin="0" aria-valuemax="100"><%= @article.avg_rating %>%</div>
+            </div>
           <% end %>
           <% if @article.newspaper.tag_political == "Left" %>
             <i class="far fa-hand-point-left"></i>
@@ -24,17 +23,8 @@
       <div class="article-date-writer">
         <div>
           <em><%= @article.writers_name %></em>
-          <%= @article.publication_date.to_date.to_formatted_s :long_ordinal %>
+          <%= @article.publication_date.to_date.to_formatted_s :long_ordinal if @article.publication_date.present? %>
         </div>
-      <div>
-        <% if @article.newspaper.name == "BBC" %>
-          <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/BBC_News_2019.svg/1200px-BBC_News_2019.svg.png", width: 50, height: 50 %>
-        <% elsif @article.newspaper.name == "blaze" %>
-          <%= image_tag "https://store-images.s-microsoft.com/image/apps.26932.13510798886188669.8a1a5090-bec9-4e2a-9e9a-50dd4a2350e1.7ff77348-ba21-4bb0-a72a-d69082546053?mode=scale&q=90&h=200&w=200&background=white", width:50, height:50 %>
-        <% elsif @article.newspaper.name == "bloomber" %>
-          <%= image_tag "https://media-exp1.licdn.com/dms/image/C4E0BAQGAH_i8FRg-uw/company-logo_200_200/0/1525302924134?e=2159024400&v=beta&t=U1yKFoI6RVpZcBafGELtrieAkRf2cPBRQHw_1Ss6aBc", width:50, height:50 %>
-        <% end %>
-      </div>
     </div>
     </div>
     <div class="new-rating">
@@ -48,8 +38,8 @@
       </div>
       <% else %>
         <%= link_to "Login to leave a rating",  new_user_session_path %>
-     <% end %>
-     </div>
+      <% end %>
+      </div>
         <div class="rating-thank-you">
           <h3>Thank you for rating!</h3>
         </div>
@@ -75,7 +65,7 @@
     <% if user_signed_in? %>
       <div class="leave-comment">
         <h3><strong>Share your own views!</strong></h3>
-        <div class="form-for-comment">
+          <div class="form-for-comment">
         <%= simple_form_for([ @article, @comment ], remote: true) do |f| %>
           <%= f.input :content, label: false, hint: 'Max 500 words', placeholder: 'Your comment' %>
           <%= f.submit "Submit comment", class: "btn btn-ghost" %>
