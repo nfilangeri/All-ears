@@ -6,30 +6,31 @@
           <h1 class="mb-3"><%= @article.title %></h1>
           <%= image_tag @article.image, width:700, height:400 %>
         </div>
-        <% if @article.ratings.present? %>
-        <div class="progress">
-          <div class="progress-bar" role="progressbar" style="width: <%= @article.avg_rating %>%;" aria-valuenow="<%= @article.avg_rating %>%" aria-valuemin="0" aria-valuemax="100"><%= @article.avg_rating %>%</div>
-        </div>
-        <% end %>
+          <div class="objectiveness">
+            <div><p>Objectiveness:</p></div>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: <%= @article.avg_rating %>%;" aria-valuenow="<%= @article.avg_rating %>%" aria-valuemin="0" aria-valuemax="100"><%= @article.avg_rating %>%</div>
+            </div>
+          </div>
       </div>
       <div class="political-newspaper-img">
         <% if @article.newspaper.tag_political == "Lean Left" %>
-        <i class="far fa-hand-point-left"></i>
+          <i class="far fa-hand-point-left"></i>
         <% elsif @article.newspaper.tag_political == "Lean Right" %>
-        <i class="far fa-hand-point-right"></i>
+          <i class="far fa-hand-point-right"></i>
         <% elsif @article.newspaper.tag_political == "Center" %>
-        <i class="far fa-hand-point-up"></i>
+          <i class="far fa-hand-point-up"></i>
         <% elsif @article.newspaper.tag_political == "Hard Right" %>
-        <i class="far fa-hand-point-right"></i>
-        <i class="far fa-hand-point-right"></i>
+          <i class="far fa-hand-point-right"></i>
+          <i class="far fa-hand-point-right"></i>
         <% elsif @article.newspaper.tag_political == "Hard Left" %>
-        <i class="far fa-hand-point-left"></i><i class="far fa-hand-point-left"></i>
+          <i class="far fa-hand-point-left"></i><i class="far fa-hand-point-left"></i>
         <% elsif @article.newspaper.tag_political == "Center - Financial" %>
-        <i class="fas fa-dollar-sign"></i>
-        <i class="far fa-hand-point-up"></i>
+          <i class="fas fa-dollar-sign"></i>
+          <i class="far fa-hand-point-up"></i>
         <% elsif @article.newspaper.tag_political == "Lean Left - Financial" %>
-        <i class="fas fa-dollar-sign"></i>
-        <i class="far fa-hand-point-left"></i>
+          <i class="fas fa-dollar-sign"></i>
+          <i class="far fa-hand-point-left"></i>
         <% end %>
         <div>
           <%= image_tag @article.newspaper.image, width:50, height:50 %>
@@ -91,6 +92,7 @@
   </ol>
   <% end %>
   <% end %>
+
   <% if user_signed_in? %>
   <div class="leave-comment">
     <h3><strong>Share your own views!</strong></h3>
@@ -106,6 +108,9 @@
   </div>
 </div>
 </div>
+
+
+
 
 
 

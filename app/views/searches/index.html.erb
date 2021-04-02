@@ -1,9 +1,11 @@
+
 <div class="form-inline">
   <%= simple_form_for @search do |t| %>
   <%= t.input :query %>
   <%= t.submit %>
   <% end %>
 </div>
+
 <h1 class="text-center mb-4">Explore what's trending today</h1>
 <div class="index-all">
   <%searches = @searches %>
