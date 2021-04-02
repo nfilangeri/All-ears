@@ -11,9 +11,7 @@
               <div class="progress-bar" role="progressbar" style="width: <%= @article.avg_rating %>%;" aria-valuenow="<%= @article.avg_rating %>%" aria-valuemin="0" aria-valuemax="100"><%= @article.avg_rating %>%</div>
             </div>
           <% end %>
-          <span class="btn btn-ghost-circle"><%= average_rating / @article.ratings.size %>% objective</span>
-          <% end %>
-        </div>
+      </div>
         <div class="political-newspaper-img">
           <% if @article.newspaper.tag_political == "Lean Left" %>
           <i class="far fa-hand-point-left"></i>
@@ -37,7 +35,7 @@
             <%= image_tag @article.newspaper.image, width:50, height:50 %>
           </div>
         </div>
-      </div>
+    </div>
       <div class="article-date-writer">
         <div>
 
@@ -45,7 +43,7 @@
           <em><p class="mt-3"><%= @article.description %></p></em>
         </div>
       </div>
-    </div>
+  </div>
     <div class="new-rating">
       <% if user_signed_in?%>
       <h5><strong>Place on a scale!</strong></h5>
@@ -56,10 +54,7 @@
         <% end %>
       </div>
       <% else %>
-
-      
-
-        <%= link_to "Login to leave a rating",  new_user_session_path %>
+        <div><%= link_to "Login to leave a rating",  new_user_session_path %>
       <% end %>
       </div>
         <div class="rating-thank-you">
@@ -67,7 +62,7 @@
         </div>
     </div>
 
-  </div>
+  
   <div class="article-content">
     <% content = @article.content %>
     <% content = content.remove('e-mail', 'by') %>
@@ -92,12 +87,9 @@
     <% end %>
     <% end %>
     <% if user_signed_in? %>
-
-    <div class="leave-comment">
-      <h3><strong>Share your own views!</strong></h3>
+      <div class="leave-comment">
+        <h3><strong>Share your own views!</strong></h3>
       <div class="form-for-comment">
-
-      
         <%= simple_form_for([ @article, @comment ], remote: true) do |f| %>
         <%= f.input :content, label: false, hint: 'Max 500 words', placeholder: 'Your comment' %>
         <%= f.submit "Submit comment", class: "btn btn-ghost" %>
