@@ -1,4 +1,4 @@
-class SearchesController < ApplicationController
+class SearchesController < ApplicationController  
   def index
     @searches = Search.all
     @search = Search.new

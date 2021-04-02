@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!, only: :show
   before_action :set_search
+
+  def after_sign_in_path_for(user)
+    searches_path
+  end
 
 private
 

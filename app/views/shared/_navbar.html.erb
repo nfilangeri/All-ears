@@ -74,7 +74,18 @@
       <%= t.button :button, {class: 'button postfix'} do %><i class="fas fa-search"></i><% end %>
     <% end %>
 
-
   <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
+  </div>
+   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto align-items-center">
+      <li class="nav-item dropdown">
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to'Logout', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </li>
+        <% end %>
+        </div>
+      </li>
+    </ul>
   </div>
 </nav>
