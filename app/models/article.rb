@@ -16,6 +16,10 @@ class Article < ApplicationRecord
   end
 
   def avg_rating
-    ratings.map(&:rating).sum/ratings.count
+    if ratings.present?
+      ratings.map(&:rating).sum/ratings.count
+    else
+      return 50
+    end
   end
 end
