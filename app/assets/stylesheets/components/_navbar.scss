@@ -11,3 +11,9 @@
 .fa-acquisitions-incorporated {
   color: black;
 }
+
+#navbarContent > ul {
+  width: 100vh;
+  display: flex;
+  justify-content: space-between;
+} 
