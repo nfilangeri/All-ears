@@ -98,7 +98,6 @@ GEM
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
-    dynamic_form (1.1.4)
     erubi (1.10.0)
     execjs (2.7.0)
     faker (2.17.0)
@@ -148,27 +147,6 @@ GEM
       racc (~> 1.4)
     nokogiri (1.11.2-x86_64-linux)
       racc (~> 1.4)
-    oauth (0.4.7)
-    oauth-plugin (0.5.1)
-      multi_json
-      oauth (~> 0.4.4)
-      oauth2 (>= 0.5.0)
-      rack
-    oauth2 (1.4.7)
-      faraday (>= 0.8, < 2.0)
-      jwt (>= 1.0, < 3.0)
-      multi_json (~> 1.3)
-      multi_xml (~> 0.5)
-      rack (>= 1.2, < 3)
-    omniauth (2.0.3)
-      hashie (>= 3.4.6)
-      rack (>= 1.6.2, < 3)
-      rack-protection
-    omniauth-facebook (8.0.0)
-      omniauth-oauth2 (~> 1.2)
-    omniauth-oauth2 (1.7.1)
-      oauth2 (~> 1.4)
-      omniauth (>= 1.9, < 3)
     orm_adapter (0.5.0)
     pg (1.2.3)
     pg_search (2.3.5)
@@ -308,15 +286,12 @@ DEPENDENCIES
   cloudinary (~> 1.16.0)
   devise
   dotenv-rails
-  dynamic_form
   faker
   faraday
   font-awesome-sass
   gemoji
   jbuilder (~> 2.7)
   listen (~> 3.3)
-  oauth-plugin
-  omniauth-facebook
   pg (~> 1.1)
   pg_search (~> 2.3.0)
   pry-byebug
