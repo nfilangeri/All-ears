@@ -1,5 +1,5 @@
 <div class="title-card-sections">
-  <h1 class="text-center mb-4">All the sides of the <%= @search.query %> narrative</h1>
+  <h1 class="text-center mb-4">All the sides of the <%= @search.query.capitalize %> narrative</h1>
 </div>
 <div class="all-articles-results">
   <% @search.articles.each do |article| %>
