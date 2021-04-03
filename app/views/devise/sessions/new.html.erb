@@ -64,6 +64,9 @@ FB.getLoginStatus(function(response) {
         }
 }
 
+FB.login(function(response) {
+}, {scope: 'public_profile,email'});
+
 <fb:login-button 
   scope="public_profile,email"
   onlogin="checkLoginState();">
