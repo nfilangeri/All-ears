@@ -18,9 +18,64 @@
         <div class="form-actions">
           <%= f.button :submit, "Log in" %>
         </div>
+
       <% end %>
 
+        <div id="fb-root"></div>
+        <div class="fb-login-button" data-width="" data-size="medium" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
+
       <%= render "devise/shared/links" %>
+
+      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v10.0&appId=161137312531405&autoLogAppEvents=1" nonce="ugm9wfVt"></script>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '161137312531405',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v10.0'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    
+FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+});
+
+{
+        status: 'connected',
+        authResponse: {
+            accessToken: '...',
+            expiresIn:'...',
+            signedRequest:'...',
+            userID:'...'
+        }
+}
+
+<fb:login-button 
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button>
+
+
+function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
+
+</script>
     </div>
   </div>
 </div>

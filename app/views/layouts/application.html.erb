@@ -16,12 +16,11 @@
     <% unless action_name == "home" %>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-
     <% end %>
 
 <%= yield %>
-<%= render 'shared/footer' %>
 
+<%= render 'shared/footer' %>
 
   </body>
 </html>
