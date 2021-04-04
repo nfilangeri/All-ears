@@ -69,10 +69,17 @@
         </div>
     </div>
     <div class="pic">
-        <% if current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key %>
-        <% else %>
-            <%= image_tag "https://freepikpsd.com/wp-content/uploads/2019/10/default-avatar-png-3-Transparent-Images.png" %>
-        <% end %>
+        <div class="row">
+            <% if current_user.photo.attached? %>
+                <%= cl_image_tag current_user.photo.key %>
+            <% else %>
+                <%= image_tag "https://freepikpsd.com/wp-content/uploads/2019/10/default-avatar-png-3-Transparent-Images.png" %>
+            <% end %>
+        </div>
+        <div id="edit">
+            <button class="btn btn-ghost">
+                <%= link_to "Edit", edit_user_registration_path(current_user) %>            
+            </button>
+        </div>
     </div>
 </div>
