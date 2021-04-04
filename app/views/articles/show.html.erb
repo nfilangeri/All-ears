@@ -3,34 +3,34 @@
     <div class="article-info">
       <div class="article-political">
         <div class="article-title">
-          <h1 class="mb-3"><%= @article.title %></h1>
+          <h1 class="mb-3 mt-3"><%= @article.title %></h1>
           <%= image_tag @article.image, width:700, height:400 %>
         </div>
           <div class="objectiveness">
             <div><p>Objectiveness:</p></div>
-            <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: <%= @article.avg_rating %>%;" aria-valuenow="<%= @article.avg_rating %>%" aria-valuemin="0" aria-valuemax="100"><%= @article.avg_rating %>%</div>
+            <div class="progress" data-controller="counter">
+              <div id="rating-avg" class="progress-bar" role="progressbar" style="width: <%= @article.avg_rating %>%;" aria-valuenow="<%= @article.avg_rating %>%" aria-valuemin="0" aria-valuemax="100" data-counter-target="count"><%= @article.avg_rating %>%</div>
             </div>
+            <button class="btn btn-outline-secondary" data-action="click->counter#refresh">Refresh counter</button>
           </div>
       </div>
       <div class="political-newspaper-img">
         <% if @article.newspaper.tag_political == "Lean Left" %>
-          <i class="far fa-hand-point-left"></i>
+          <i class="fas fa-arrow-left"></i>
         <% elsif @article.newspaper.tag_political == "Lean Right" %>
-          <i class="far fa-hand-point-right"></i>
+          <i class="fas fa-arrow-right"></i>
         <% elsif @article.newspaper.tag_political == "Center" %>
-          <i class="far fa-hand-point-up"></i>
+          <i class="fas fa-arrow-up"></i>
         <% elsif @article.newspaper.tag_political == "Hard Right" %>
-          <i class="far fa-hand-point-right"></i>
-          <i class="far fa-hand-point-right"></i>
+          <i class="fas fa-arrow-right"></i>
+          <i class="fas fa-arrow-right"></i>
         <% elsif @article.newspaper.tag_political == "Hard Left" %>
-          <i class="far fa-hand-point-left"></i><i class="far fa-hand-point-left"></i>
+          <i class="fas fa-arrow-left"></i>
+          <i class="fas fa-arrow-left"></i>
         <% elsif @article.newspaper.tag_political == "Center - Financial" %>
-          <i class="fas fa-dollar-sign"></i>
-          <i class="far fa-hand-point-up"></i>
+          <i class="fas fa-arrow-up"></i>
         <% elsif @article.newspaper.tag_political == "Lean Left - Financial" %>
-          <i class="fas fa-dollar-sign"></i>
-          <i class="far fa-hand-point-left"></i>
+          <i class="fas fa-arrow-left"></i>
         <% end %>
         <div>
           <%= image_tag @article.newspaper.image, width:50, height:50 %>
@@ -39,7 +39,7 @@
     <div class="article-date-writer">
       <div>
         <em><%= @article.publication_date.to_date.to_formatted_s :long_ordinal  if @article.publication_date.present?%></em>
-        <em><p class="mt-3"><%= @article.description %></p></em>
+        <div id="line-division"><em><p><%= @article.description %></p></em></div>
       </div>
     </div>
   </div>
@@ -47,7 +47,7 @@
     <% if user_signed_in?%>
     <h5><strong>Place on a scale!</strong></h5>
     <div class="form-rating">
-      <%= simple_form_for([ @article, @rating ]) do |f| %>
+      <%= simple_form_for([ @article, @rating ], remote: true) do |f| %>
       <%= f.input :rating, label: "From subjective to objective", as: :range, collection: 1..100 %>
       <%= f.submit "Submit rating", class: "btn btn-ghost", id: "submit-rating" %>
       <% end %>
@@ -107,6 +107,7 @@
   </div>
 </div>
 </div>
+
 
 
 

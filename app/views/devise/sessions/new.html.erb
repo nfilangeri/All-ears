@@ -2,7 +2,6 @@
   <div class="row justify-content-center">
     <div class="col-12 col-lg-8">
       <h2>Log in</h2>
-
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-inputs">
           <%= f.input :email,
@@ -14,13 +13,10 @@
                       input_html: { autocomplete: "current-password" } %>
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
         </div>
-
         <div class="form-actions mb-2">
           <%= f.button :submit, "Log in", class: "btn btn-ghost"%>
         </div>
-
       <% end %>
-
         <div id="fb-root"></div>
         <div class="fb-login-button" data-width="" data-size="medium" data-button-type="login_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
 
@@ -36,9 +32,9 @@
       xfbml      : true,
       version    : 'v10.0'
     });
-      
-    FB.AppEvents.logPageView();   
-      
+
+    FB.AppEvents.logPageView();
+
   };
 
   (function(d, s, id){
@@ -49,7 +45,7 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
-    
+
 FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
 });
@@ -67,7 +63,7 @@ FB.getLoginStatus(function(response) {
 FB.login(function(response) {
 }, {scope: 'public_profile,email'});
 
-<fb:login-button 
+<fb:login-button
   scope="public_profile,email"
   onlogin="checkLoginState();">
 </fb:login-button>

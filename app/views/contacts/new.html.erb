@@ -1,0 +1,17 @@
+<div class="container-contact">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-8">
+    <h1 class= "text-center mb-3">We're all ears, contact us here!</h1>
+      <%= simple_form_for @contact do |f| %>
+      <div class="form-inputs">
+      <%= f.input :name, required: true %>
+      <%= f.input :email %>
+      <%= f.input :message, as: :text %>
+    </div>
+    <div class="form-actions mb-2">
+      <%= f.submit 'Send Message', class: "btn btn-ghost" %>
+    </div>
+  <% end %>
+</div>
+</div>
+</div>

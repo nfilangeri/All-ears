@@ -3,6 +3,6 @@ class Search < ApplicationRecord
 
   def image
     @articles = Article.all
-    @articles.sample.image
+    @articles.first.image
   end
 end
