@@ -1,0 +1,35 @@
+#info {
+    display: flex;
+    justify-content: space-between;
+}
+
+h6 {
+    font-weight: 800;
+}
+
+.item {
+    border-right: 1px solid black;
+    padding-right: 110px;
+}
+
+.last-item {
+    padding-right: 80px;
+}
+
+#bio {
+    border-top: 1px solid darkgrey;
+    padding-left: 15%;
+    padding-top: 10px;
+}
+
+#accordion {
+    width: 60vw;
+    margin-bottom: 100px;
+    margin-top: 100px;
+    margin-left: 100px;
+}
+
+.pic {
+    margin-left: 10%;
+    margin-top: 100px;
+}
