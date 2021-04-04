@@ -1,34 +1,67 @@
 <div class="title-card-sections">
-  <h1 class="text-center mb-4">All the sides of the <%= @search.query.capitalize %> narrative</h1>
+  <h1 class="text-center mb-4 mt-4">All the sides of the <%= @search.query.capitalize %> narrative</h1>
+  <p class="text-center"><button type="button" class="btn btn-ghost" data-toggle="modal" data-target="#exampleModal">
+  Arrow guide
+</button></p>
+</div>
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Political affiliations of each newspaper</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <p><em>Be all ears and diversify your source, we've added arrows to help!</em></p>
+        <p><i class="fas fa-arrow-left"></i> <i class="fas fa-arrow-left "></i> Hard Left</p>
+        <p><i class="fas fa-arrow-left"></i>  Lean Left</p>
+        <p><i class="fas fa-arrow-up"></i> Center </p>
+        <p><i class="fas fa-arrow-right"></i>  Lean Right</p>
+        <p><i class="fas fa-arrow-right"></i><i class="fas fa-arrow-right"></i> Hard Right</p>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="all-articles-results">
   <% @search.articles.each do |article| %>
-    <div class="card-product">
-        <%= image_tag article.get_thumbnail %>
+  <div class="card-product">
+    <%= image_tag article.get_thumbnail %>
+    <div class="card-product-all-infos-tag">
       <div class="card-product-infos">
         <h2> <%= link_to article.title, article_path(article) %></h2>
-        <p><%= article.description.first(180) %></p>
-      </div>
-      <div class="card-product-tag d-flex">
-        <% if article.newspaper.tag_political == "Lean Left" %>
-          <i class="far fa-hand-point-left"></i>
-        <% elsif article.newspaper.tag_political == "Lean Right" %>
-          <i class="far fa-hand-point-right"></i>
-        <% elsif article.newspaper.tag_political == "Center" %>
-          <i class="far fa-hand-point-up"></i>
-        <% elsif article.newspaper.tag_political == "Hard Right" %>
-          <i class="far fa-hand-point-right"></i>
-          <i class="far fa-hand-point-right"></i>
-        <% elsif article.newspaper.tag_political == "Hard Left" %>
-          <i class="far fa-hand-point-left"></i><i class="far fa-hand-point-left"></i>
-        <% elsif article.newspaper.tag_political == "Center - Financial" %>
-          <i class="fas fa-dollar-sign"></i>
-          <i class="far fa-hand-point-up"></i>
-        <% elsif article.newspaper.tag_political == "Lean Left - Financial" %>
-          <i class="fas fa-dollar-sign"></i>
-          <i class="far fa-hand-point-left"></i>
+        <% if article.description.length > 100 %>
+        <p><%= article.description.first(100) %> (...)</p>
+        <% else %>
+        <p><%= article.description.first(100) %></p>
         <% end %>
       </div>
+      <div class="card-product-tag d-flex align-items-center mr-3">
+        <% if article.newspaper.tag_political == "Lean Left" %>
+        <i class="fas fa-arrow-left"></i>
+        <% elsif article.newspaper.tag_political == "Lean Right" %>
+        <i class="fas fa-arrow-right"></i>
+        <% elsif article.newspaper.tag_political == "Center" %>
+        <i class="fas fa-arrow-up"></i>
+        <% elsif article.newspaper.tag_political == "Hard Right" %>
+        <i class="fas fa-arrow-right"></i>
+        <i class="fas fa-arrow-right"></i>
+        <% elsif article.newspaper.tag_political == "Hard Left" %>
+        <i class="fas fa-arrow-left"></i>
+        <i class="fas fa-arrow-left"></i>
+        <% elsif article.newspaper.tag_political == "Center - Financial" %>
+        <i class="fas fa-arrow-up"></i>
+        <% elsif article.newspaper.tag_political == "Lean Left - Financial" %>
+        <i class="fas fa-arrow-left"></i>
+        <% end %>
+        <%= image_tag article.newspaper.image  %>
+      </div>
     </div>
+  </div>
   <% end %>
 </div>
