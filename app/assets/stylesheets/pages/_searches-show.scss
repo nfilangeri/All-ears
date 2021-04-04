@@ -13,6 +13,7 @@
   margin-bottom: 20px;
 }
 
+
 .card-product img {
   height: 100%;
   width: 150px;
@@ -36,6 +37,7 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+  width:970px;
           a {
             text-decoration: none;
             color: black;
@@ -52,22 +54,29 @@
   border-bottom: 1px solid #DBDBDB;
 }
 
-.card-product-tag{
-  margin-left: 0px;
-  margin-right: 30px;
+.card-product-tag img{
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
 }
 
-i.far.fa-hand-point-right {
+i.fas.fa-arrow-up {
+  font-size: 30px;
+  padding: 5px;
+
+}
+
+i.fas.fa-arrow-right {
   font-size: 30px;
   padding: 5px;
 }
 
-i.far.fa-hand-point-left {
-  font-size: 30px;
-  padding: 5px;
-}
-
-i.far.fa-hand-point-up {
+i.fas.fa-arrow-left {
   font-size: 30px;
   padding: 5px;
 }
@@ -75,4 +84,15 @@ i.far.fa-hand-point-up {
 i.fas.fa-dollar-sign {
   font-size: 30px;
   padding: 5px;
+}
+
+.card-product-all-infos-tag{
+  width:1050px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.img-newspaper-searches {
+
 }

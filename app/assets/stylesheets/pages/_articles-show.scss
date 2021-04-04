@@ -1,18 +1,16 @@
 .article-info {
   border-right: 1px solid #DBDBDB;
-  padding: 20px;
-  margin: 20px;
+  margin-bottom: 5px;
   width: 1000px;
+  border-bottom: 1px solid #DBDBDB;
 }
 
 .new-rating {
   padding: 20px;
-  margin: 20px;
 }
 
 .whole-article-beggining{
   display: flex;
-  border-bottom: 1px solid #DBDBDB;
 }
 
 .article-political {
@@ -26,7 +24,6 @@
   padding-top:25px;
   padding-bottom:100px;
   width: 800px;
-  margin-left: 50px;
 }
 
 .article-date-writer {
@@ -77,4 +74,9 @@
   display: flex;
   justify-content: center;
   }
+}
+
+#line-division {
+  margin-bottom: 1px solid #DBDBDB;
+  margin-top: 10px;
 }

@@ -33,6 +33,8 @@ class ArticlesController < ApplicationController
     redirect_to @index
   end
 
+
+
     private
 
     def params_article
