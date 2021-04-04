@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   resources :topics, except: :edit do
     resources :messages, only: [:show, :create, :update, :destroy]
   end
+  resources :user, only: :show
 end
