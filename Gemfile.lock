@@ -295,7 +295,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
-  carrierwave (~> 2.0)
+  carrierwave
   cloudinary (~> 1.16.0)
   devise
   dotenv-rails
@@ -305,10 +305,7 @@ DEPENDENCIES
   gemoji
   jbuilder (~> 2.7)
   listen (~> 3.3)
-
   mail_form
-
-
   pg (~> 1.1)
   pg_search (~> 2.3.0)
   pry-byebug
