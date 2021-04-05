@@ -1,5 +1,5 @@
 class Rating < ApplicationRecord
   belongs_to :article
   belongs_to :user
-  # validates :article_id, uniqueness: { scope: :user_id, message: "You've already placed your scale!" }
+  validates_uniqueness_of :article_id, scope: :user_id
 end

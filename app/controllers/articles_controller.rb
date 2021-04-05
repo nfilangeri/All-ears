@@ -3,11 +3,7 @@ class ArticlesController < ApplicationController
   before_action :set_articles, only: [:show, :create, :destroy]
 
   def index
-
     if params[:query].present?
-      #go get all newspapers and iterate over each newspaper
-      #on each newspaper, go and get_articles of params[:query]
-      #push that into @articles
       @articles = Article.search_full_text(params[:query])
     else
       @articles = Article.all
@@ -17,6 +13,8 @@ class ArticlesController < ApplicationController
   def show
     @comment = Comment.new
     @rating = Rating.new
+    @user_rating = @article.ratings.where(user: current_user)
+    @user_rating_first = @article.ratings.where(user: current_user).first
   end
 
   def create
@@ -35,13 +33,13 @@ class ArticlesController < ApplicationController
 
 
 
-    private
+  private
 
-    def params_article
-        params.require(:article).permit(:content, :title, :writers_name, :publication_date, :newspaper)
-    end
+  def params_article
+    params.require(:article).permit(:content, :title, :writers_name, :publication_date, :newspaper)
+  end
 
-    def set_articles
-        @article = Article.find(params[:id])
-    end
+  def set_articles
+    @article = Article.find(params[:id])
+  end
 end
