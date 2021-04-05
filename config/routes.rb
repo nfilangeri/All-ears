@@ -15,5 +15,4 @@ Rails.application.routes.draw do
   resources :topics, only: [:index, :show, :create, :update, :destroy] do
     resources :messages, only: [:show, :create, :update, :destroy]
   end
-  resources :user, only: :show
 end

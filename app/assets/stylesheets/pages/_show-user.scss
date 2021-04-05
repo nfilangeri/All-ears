@@ -40,3 +40,30 @@ h6 {
     display: flex;
     justify-content: center;
 }
+
+body > div.row > div.pic > div.row > img {
+    height: 500px;
+    width: 400px;
+}
+
+#headingOne > h5 > button {
+    text-decoration: none;
+    color:black;
+    font-weight: 900;
+}
+
+#headingTwo > h5 > button {
+    text-decoration: none;
+    color:black;
+    font-weight: 900;
+}
+
+#headingThree > h5 > button {
+    text-decoration: none;
+    color:black;
+    font-weight: 900;
+}
+
+#info {
+    list-style: none;
+}
