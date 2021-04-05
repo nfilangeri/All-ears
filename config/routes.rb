@@ -12,8 +12,7 @@ Rails.application.routes.draw do
   resources :newspapers, only: [:index, :edit, :update]
   resources :ratings, only: :update
   resources :users, only: :show
-  resources :topics, except: :edit do
+  resources :topics, only: [:index, :show, :create, :update, :destroy] do
     resources :messages, only: [:show, :create, :update, :destroy]
   end
-  resources :user, only: :show
 end

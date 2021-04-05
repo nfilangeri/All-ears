@@ -16,41 +16,20 @@
           <i class="far fa-newspaper fa-4x mb-3 animated rotateIn"></i>
           <p>
             <strong>New Topic Title</strong>
-            <textarea type="string" id="title" class="md-textarea form-control" rows="1"></textarea>
           </p>
-        </div>
 
-        <hr>
-        <p class="text-center">Try to write a detailed topic description, with a well explained subject, a problematic and what solutions you may have think of..</p>
-        <div class="md-form">
-          <textarea type="text" id="content" class="md-textarea form-control" rows="3"></textarea>
+          
+            <%= simple_form_for @topic do |f| %>
+              <%= f.input :subject %>
+              <%= f.input :content %>
+              <%= f.submit "Create topic", class: "btn btn-ghost" %>
+            <% end %>
+        
         </div>
-      </div>
-
-      <div class="modal-footer justify-content-center">
-        <a type="button" class="btn btn-ghost waves-effect waves-light" id="send">Create
-          <i class="fa fa-paper-plane ml-1"></i>
-        </a>
-        <a type="button" class="btn btn-ghost waves-effect" data-dismiss="modal">Cancel</a>
       </div>
     </div>
   </div>
 </div>
-
-<script>
-  const modal = getElementById("send");
-    modal.addEventListener('click',() => {
-
-    function getTitle() {
-      const title = document.getElement.id("title").value
-      console.log(title)
-  };
-    function getText() {
-      const content = document.getElement.id("content").value
-      console.log(content)
-  });
-  };
-</script>
 
 <div class="title-card-sections">
   <h1 class="text-center mb-4">We're always all ears - join in!</h1>
