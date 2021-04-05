@@ -21,7 +21,7 @@
           
             <%= simple_form_for @topic do |f| %>
               <%= f.input :subject %>
-              <%= f.input :content, as: :string %>
+              <%= f.input :content %>
               <%= f.submit "Create topic", class: "btn btn-ghost" %>
             <% end %>
         
