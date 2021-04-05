@@ -87,7 +87,7 @@
 
   <div class="article-content">
     <% content = @article.content %>
-    <% content = content.remove('e-mail', 'Email', 'email' 'Close', 'Published', 'Filed under', 'By', 'PA Media', 'image caption', 'image copyright', '|', 'Share or comment on this article:', 'Sorry we are not currently accepting comments on this article.', 'Bing', 'Our Standards:', 'Getty Images', 'Slideshow', 'newsletter', 'Next Up In', 'For You', 'Related Topics', 'Reuters', 'FILE PHOTO:') %>
+    <% content = content.remove('or comment on this article:','Share this article', 'Share','To continue reading this article you must be a Bloomberg Professional Service Subscriber.','seepagefrom','e-mail', 'Email', 'email' 'Close', 'Published', 'Filed under', 'By', 'PA Media', 'image caption', 'image copyright', '|', 'Share or comment on this article:', 'Sorry we are not currently accepting comments on this article.', 'Bing', 'Our Standards:', 'Getty Images', 'Slideshow', 'newsletter', 'Next Up In', 'For You', 'Related Topics', 'Reuters', 'FILE PHOTO:', 'media caption') %>
     <% content = content.gsub(/[P][h][o][t][o][g][r][a][p][h][e][r][:]\s\w+\s\w+\W[B][l][o][o][m][b][e][r][g]/, '') %>
     <% content = content.gsub(/\d\s.{3}\s.{4}/, '') %>
     <% content = content.gsub(/\w+\s\w+\W\w{3}\s[v][i][a]\s\w+\s[I][m][a][g][e]\w/, '') %>
@@ -95,15 +95,27 @@
     <% content = content.gsub(/\d{2}[:]\d{2}/, '') %>
     <% content = content.gsub(/[S][i][g][n]\s[u][p]\s\w+\s\w+\s\w+\s/, '') %>
     <% content = content.gsub(/\d{2}\W\d{2}\s\w{3},+\s\d{2}\s\w+\s\d{4}/, '')%>
+    <% content = content.gsub(/[B][S][T][,]\s\d+\s\w+\s\d{4}/,'') %>
+    <% content = content.gsub(/^([a-zA-Z]{2,}\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)\W[B][l][o][o][m][b][e][r][g]\s[v][i][a]/, '')%>
+    <% content = content.gsub(/([a-zA-Z]{2,}\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)\W[A][F][P]\s[v][i][a]/,'') %>
     <% content.split("\n").each do |paragraph| %>
-
-      <strong>paragrah</strong>
-
-      <p>
-        <%= paragraph %>
-      </p>
-
+    <% if paragraph.length < 5 %>
+    <%  %>
+    <% elsif paragraph == @article.title  %>
+    <%= paragraph = '' %>
+    <% elsif paragraph.length < 30 && paragraph.length > 5 && paragraph =~ /[A-Z]/%>
+    <br>
+    <h5> <strong><%= paragraph %></strong></h5>
+    <br>
+    <% elsif paragraph.length < 30 && paragraph.length > 5 && paragraph !=~ /[A-Z]/%>
+    <%= paragraph %>
+    <% else %>
+    <p>
+      <%= paragraph %>
+    </p>
     <% end %>
+    <% end %>
+
   </div>
 
 
