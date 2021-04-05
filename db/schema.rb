@@ -134,7 +134,11 @@ ActiveRecord::Schema.define(version: 2021_04_05_105000) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "content"
-    t.string "category"
+    t.string "category"bundle exec rake assets:precompile
+    git add -A
+    git commit -m "Precompile assets"
+    git push
+    git push heroku
     t.index ["user_id"], name: "index_topics_on_user_id"
   end
 
