@@ -1,9 +1,10 @@
 class TopicsController < ApplicationController
   before_action :set_topics, only: [:show, :update, :destroy]
-  
+
   def index
     @topics = Topic.all
-    @topic= Topic.new
+    @topic = Topic.new
+    all_searches = Search.all.order(created_at: :desc)
   end
 
   def show
@@ -16,6 +17,7 @@ class TopicsController < ApplicationController
     if @topic.save
       redirect_to topics_path
     end
+
   end
 
   def update
@@ -34,7 +36,7 @@ class TopicsController < ApplicationController
 private
 
   def params_topic
-    params.require(:topic).permit(:subject,:content, :user)
+    params.require(:topic).permit(:subject, :content, :user, :category)
   end
 
   def set_topics
