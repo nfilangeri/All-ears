@@ -8,25 +8,25 @@ require 'faker'
  User.destroy_all
  Search.destroy_all
 
-puts "creating search"
+# puts "creating search"
 
-search = Search.new(query: "covid")
-search.save!
+# search = Search.new(query: "covid")
+# search.save!
 
-search = Search.new(query: "hong kong")
-search.save!
+# search = Search.new(query: "hong kong")
+# search.save!
 
-search = Search.new(query: "brexit")
-search.save!
+# search = Search.new(query: "brexit")
+# search.save!
 
-search = Search.new(query: "lockdown")
-search.save!
+# search = Search.new(query: "lockdown")
+# search.save!
 
-search = Search.new(query: "pfizer")
-search.save!
+# search = Search.new(query: "pfizer")
+# search.save!
 
-search = Search.new(query: "biden")
-search.save!
+# search = Search.new(query: "biden")
+# search.save!
 
 
 puts "creating users"
@@ -63,7 +63,8 @@ puts "creating topics"
     topic = Topic.new(
         subject: Faker::Name.name,
         content: Faker::Lorem.sentence(word_count: 100),
-        user_id: User.all.map(&:id).sample
+        user_id: User.all.map(&:id).sample,
+        category: "Science"
     )
     topic.save!
 end
