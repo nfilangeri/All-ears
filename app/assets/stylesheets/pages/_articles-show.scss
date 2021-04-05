@@ -1,10 +1,18 @@
 .article-info {
-  border-right: 1px solid #DBDBDB;
   margin-bottom: 5px;
-  width: 1000px;
   border-bottom: 1px solid #DBDBDB;
+  padding-bottom:20px;
 }
 
+.article-title{
+  margin-bottom: 5px;
+  border-bottom: 1px solid #DBDBDB;
+  padding-bottom:20px;
+  display:flex;
+  width: 1100px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
 .new-rating {
   padding: 20px;
   margin-top: 100px;
@@ -23,8 +31,9 @@
 
 .article-content{
   padding-top:25px;
-  padding-bottom:100px;
-  width: 800px;
+  padding-bottom:50px;
+  width: 1100px;
+  margin: 0 auto;
 }
 
 .article-date-writer {
@@ -66,7 +75,8 @@
 
 .progress {
   width: 250px;
-  background-color: lightgrey;
+  height: 50px;
+  background-color: #DBDBDB;
 }
 
 .objectiveness {
@@ -83,3 +93,45 @@
   margin-bottom: 1px solid #DBDBDB;
   margin-top: 10px;
 }
+
+#photo-rating {
+  display:flex;
+  margin-top: 20px;
+}
+
+#object-and-user-rating{
+  margin-top: 20px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+
+}
+
+.social-share a {
+  font-size:20px;
+  border-radius:50%;
+  border: 1px solid #DBDBDB;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #DBDBDB;
+
+}
+
+.social-share a:hover{
+  color: black;
+  border: 1px solid black;
+
+}
+
+.social-share{
+  margin-top:20px;
+}
+
+.form-rating{
+  margin-left:10px;
+  margin-top:10px;
+}
+
+
