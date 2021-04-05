@@ -23,6 +23,7 @@
               <%= f.input :subject %>
               <%= f.input :content %>
               <%= f.input :category, collection: Topic.categories, include_blank: false  %>
+
               <%= f.submit "Create topic", class: "btn btn-ghost" %>
             <% end %>
 

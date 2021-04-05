@@ -13,6 +13,8 @@ class RatingsController < ApplicationController
     @rating.user = current_user
     @rating.article = @article
     @rating.save
+      redirect_to article_path(@article, anchor:"rating-avg")
+
   end
 
   private
