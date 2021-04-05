@@ -7,20 +7,17 @@ class RatingsController < ApplicationController
   end
 
   def create
+
     @article = Article.find(params[:article_id])
     @rating = Rating.new(params_rating)
-    @rating.article = @article
     @rating.user = current_user
-    if @rating.save
-      redirect_to article_path(@article)
-    else
-      redirect_to articles_path
-    end
+    @rating.article = @article
+    @rating.save
   end
 
   private
 
   def params_rating
-    params.require(:rating).permit(:article, :user, :rating)
+    params.require(:rating).permit(:article, :rating)
   end
 end
