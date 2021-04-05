@@ -1,5 +1,6 @@
 class TopicsController < ApplicationController
   before_action :set_topics, only: [:show, :update, :destroy]
+  
   def index
     @topics = Topic.all
   end
@@ -16,17 +17,17 @@ class TopicsController < ApplicationController
     @topic = Topic.new(params_topic)
     @topic.user = current_user
     if @topic.save
-     redirect_to topics_path(topic)
-   end
- end
+      redirect_to topics_path(topic)
+    end
+  end
 
- def update
+  def update
   @topic = Topic.update(params_topic)
   @topic.user = current_user
-  if @topic.save
-    redirect_to topics_path(topic)
+    if @topic.save
+      redirect_to topics_path(topic)
+    end
   end
-end
 
 def destroy
   @topic.destroy
@@ -42,5 +43,6 @@ end
 def set_topics
   @topic = Topic.find(params[:id])
 end
+
 end
 
