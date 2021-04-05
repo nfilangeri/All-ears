@@ -5,8 +5,4 @@ class Topic < ApplicationRecord
   has_one_attached :photo
   validates :category, inclusion: { in: CATEGORY }
 
-  def self.categories
-    CATEGORY
-  end
-
 end

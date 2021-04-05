@@ -14,7 +14,6 @@ class SearchesController < ApplicationController
 
   def create
     @search = Search.new(search_params)
-
     Newspaper.all.each do |newspaper|
       newspaper.get_articles(@search)
     end
