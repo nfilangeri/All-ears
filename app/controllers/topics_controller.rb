@@ -2,8 +2,10 @@ class TopicsController < ApplicationController
   before_action :set_topics, only: [:show, :update, :destroy]
 
   def index
+
     @topic= Topic.new
     @topics = Topic.paginate(:page => params[:page], :per_page => 6)
+
   end
 
   def show
@@ -16,6 +18,7 @@ class TopicsController < ApplicationController
     if @topic.save
       redirect_to topics_path
     end
+
   end
 
   def update
@@ -39,7 +42,7 @@ class TopicsController < ApplicationController
 private
 
   def params_topic
-    params.require(:topic).permit(:subject,:content, :user)
+    params.require(:topic).permit(:subject, :content, :user, :category)
   end
 
   def set_topics
