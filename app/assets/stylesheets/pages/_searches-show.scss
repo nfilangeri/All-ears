@@ -11,8 +11,15 @@
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-}
+position: relative;
+  top: 0;
+  transition: all .1s ease-in;
 
+  &:hover {
+    top: -2px;
+    box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+  }
+}
 
 .card-product img {
   height: 100%;
