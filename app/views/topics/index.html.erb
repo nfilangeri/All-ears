@@ -18,13 +18,13 @@
             <strong>New Topic Title</strong>
           </p>
 
-          
+
             <%= simple_form_for @topic do |f| %>
               <%= f.input :subject %>
               <%= f.input :content %>
               <%= f.submit "Create topic", class: "btn btn-ghost" %>
             <% end %>
-        
+
         </div>
       </div>
     </div>
@@ -48,4 +48,7 @@
       </div>
     </div>
     <% end %>
+</div>
+<div class="d-flex justify-content-center pagination">
+  <%= will_paginate @topics, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
 </div>

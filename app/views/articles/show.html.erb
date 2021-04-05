@@ -87,7 +87,8 @@
 
   <div class="article-content">
     <% content = @article.content %>
-    <% content = content.remove('e-mail', 'Close', 'Published', 'Filed under', 'By', 'PA Media', 'image caption', 'image copyright', '|', 'Share or comment on this article:', 'Sorry we are not currently accepting comments on this article.', 'Bing', 'Our Standards:', 'Getty Images', 'Slideshow', 'newsletter', 'Next Up In', 'For You', 'Related Topics', 'Reuters', 'FILE PHOTO:') %>
+    <% content = content.remove('e-mail', 'Email', 'email' 'Close', 'Published', 'Filed under', 'By', 'PA Media', 'image caption', 'image copyright', '|', 'Share or comment on this article:', 'Sorry we are not currently accepting comments on this article.', 'Bing', 'Our Standards:', 'Getty Images', 'Slideshow', 'newsletter', 'Next Up In', 'For You', 'Related Topics', 'Reuters', 'FILE PHOTO:') %>
+    <% content = content.gsub(/[P][h][o][t][o][g][r][a][p][h][e][r][:]\s\w+\s\w+\W[B][l][o][o][m][b][e][r][g]/, '') %>
     <% content = content.gsub(/\d\s.{3}\s.{4}/, '') %>
     <% content = content.gsub(/\w+\s\w+\W\w{3}\s[v][i][a]\s\w+\s[I][m][a][g][e]\w/, '') %>
     <% content = content.gsub(/[(]\s\d\s\w+\s[)]/, '') %>
@@ -95,9 +96,13 @@
     <% content = content.gsub(/[S][i][g][n]\s[u][p]\s\w+\s\w+\s\w+\s/, '') %>
     <% content = content.gsub(/\d{2}\W\d{2}\s\w{3},+\s\d{2}\s\w+\s\d{4}/, '')%>
     <% content.split("\n").each do |paragraph| %>
-    <p>
-      <%= paragraph %>
-    </p>
+
+      <strong>paragrah</strong>
+
+      <p>
+        <%= paragraph %>
+      </p>
+
     <% end %>
   </div>
 

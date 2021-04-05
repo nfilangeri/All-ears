@@ -24,6 +24,9 @@ gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'pg_search', '~> 2.3.0'
 gem 'faraday'
+gem 'will_paginate', '~> 3.1.1'
+gem 'will_paginate-bootstrap4'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'faker'
