@@ -1,5 +1,7 @@
 class SearchesController < ApplicationController
-  skip_before_action :authenticate_user!
+
+  skip_before_action :authenticate_user!, only: [:index]
+
 
   def index
     @searches = Search.all
@@ -14,14 +16,21 @@ class SearchesController < ApplicationController
 
   def create
     @search = Search.new(search_params)
-    Newspaper.all.each do |newspaper|
+
+    if @search.valid?
+      all_articles = Newspaper.all.map do |newspaper|
       newspaper.get_articles(@search)
-    end
-    if @search.save
-      redirect_to @search
+       end
+        if all_articles != [nil, nil, nil, nil, nil, nil]
+          @search.save
+          redirect_to search_path(@search)
+        else
+        redirect_to(searches_path, alert: "Please check for any possible typos")
+        end
     else
-      render :index
+      redirect_to(searches_path, alert: "You must input something to search!")
     end
+
   end
 
   def show

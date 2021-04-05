@@ -4,6 +4,7 @@ class Article < ApplicationRecord
   has_many :ratings, dependent: :destroy
   belongs_to :search
 
+
   include PgSearch::Model
   pg_search_scope :search_full_text, against: {
     title: 'A',

@@ -7,7 +7,7 @@ h6 {
     font-weight: 800;
 }
 
-.item {
+#user-show {
     border-right: 1px solid black;
     padding-right: 110px;
 }
@@ -66,4 +66,8 @@ body > div.row > div.pic > div.row > img {
 
 #info {
     list-style: none;
+}
+
+.all-user-profil{
+  display:flex;
 }
