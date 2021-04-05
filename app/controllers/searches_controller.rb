@@ -1,4 +1,6 @@
-class SearchesController < ApplicationController  
+class SearchesController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def index
     @searches = Search.all
     @search = Search.new
