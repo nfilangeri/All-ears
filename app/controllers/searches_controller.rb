@@ -1,5 +1,7 @@
 class SearchesController < ApplicationController
+
   skip_before_action :authenticate_user!, only: [:index]
+
 
   def index
     @searches = Search.all
@@ -14,6 +16,7 @@ class SearchesController < ApplicationController
 
   def create
     @search = Search.new(search_params)
+
     if @search.valid?
       all_articles = Newspaper.all.map do |newspaper|
       newspaper.get_articles(@search)

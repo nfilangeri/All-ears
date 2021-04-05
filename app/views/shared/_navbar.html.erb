@@ -19,7 +19,7 @@
                 <div class="p-4">
                   <div class="row">
                     <div class="col-lg-6 mb-4">
-                      <h6 class="font-weight-bold text-uppercase">Trending</h6>
+                      <h6 class="font-weight-bold text-uppercase">Categories</h6>
                       <div class="menu-display">
                         <ul class="list-unstyled">
                           <li class="nav-item"><a href="https://all-ears-open.herokuapp.com/searches/27" class="nav-link text-small pb-0">Health</a></li>
@@ -95,7 +95,9 @@
             </li>
           <% else %>
             <li>
-              <%= link_to'Login', new_user_session_path, class: "dropdown-item" %>
+
+              <%= link_to'Log in', new_user_session_path, class: "btn btn-ghost" %>
+
             </li>
           <% end %>
           </div>

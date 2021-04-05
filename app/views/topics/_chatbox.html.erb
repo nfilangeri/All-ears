@@ -7,9 +7,15 @@
         <%= render "messages/messages", messages: @topic.messages.last(8) %>
       </div>
 
-      <%= simple_form_for [ @topic, @message ], remote: true do |f| %>
-        <%= f.input :content, as: :string , label: "Leave a comment"  %>
+      <div>
+      <% if user_signed_in? %>
+        <%= simple_form_for [ @topic, @message ], remote: true do |f| %>
+          <%= f.input :content, as: :string , label: "Leave a comment"  %>
+        <% end %>
+      <% else %>
+        <h4>You have to be logged to participate!!</h4>  
       <% end %>
+      </div>
     </div>
   </div>
 </div>
