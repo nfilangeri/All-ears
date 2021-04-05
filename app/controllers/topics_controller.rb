@@ -32,11 +32,11 @@ class TopicsController < ApplicationController
     redirect_to topics_path
   end
   
+    def get_topics
+      @page = @topics.each_slice(6).to_a
+    end
+  
   private
-
-  def get_topics
-    @page = @topics.each_slice(6).to_a
-  end
 
   def params_topic
     params.require(:topic).permit(:subject, :content, :user, :category)
