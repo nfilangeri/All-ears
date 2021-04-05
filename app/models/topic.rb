@@ -7,5 +7,4 @@ class Topic < ApplicationRecord
   def self.categories
     CATEGORY
   end
-
 end
