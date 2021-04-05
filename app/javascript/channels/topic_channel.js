@@ -10,8 +10,8 @@ const initTopicCable = () => {
 
     consumer.subscriptions.create({ channel: "TopicChannel", id: id }, {
       received(data) {
-        messagesContainer.innerHTML = data
-        messageBox.value = "" //pose problème
+        messagesContainer.innerHTML = ('beforeend', data)
+        // messageBox.value = "" // <== pose problème
       },
     });
   }
