@@ -2,9 +2,10 @@ class TopicsController < ApplicationController
   before_action :set_topics, only: [:show, :update, :destroy]
 
   def index
-    @topics = Topic.all
-    @topic = Topic.new
-    all_searches = Search.all.order(created_at: :desc)
+
+    @topic= Topic.new
+    @topics = Topic.paginate(:page => params[:page], :per_page => 6)
+
   end
 
   def show
@@ -32,6 +33,11 @@ class TopicsController < ApplicationController
     @topic.destroy
     redirect_to topics_path
   end
+
+  def get_topics
+    @page = @topics.each_slice(6).to_a
+  end
+
 
 private
 
