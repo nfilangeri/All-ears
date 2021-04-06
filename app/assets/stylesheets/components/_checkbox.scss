@@ -1,64 +1,14 @@
 
-.card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid #d2d2dc;
-    border-radius: 0
+.btn {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
 }
 
-.card .card-body {
-    padding: 1.25rem 1.75rem
-}
-
-.card-body {
-    flex: 1 1 auto;
-    padding: 1.25rem
-}
-
-.card .card-title {
-    color: #000000;
-    margin-bottom: 0.625rem;
-    text-transform: capitalize;
-    font-size: 0.875rem;
-    font-weight: 500
-}
-
-
-
-p {
-    font-size: 0.875rem;
-    margin-bottom: .5rem;
-    line-height: 1.5rem
-}
-
-label.check {
-    cursor: pointer
-}
-
-label.check input {
-    position: absolute;
-    top: 0;
-    left: 0;
-    visibility: hidden;
-    pointer-events: none
-}
-
-label.check span {
-    padding: 7px 14px;
-    border: 2px solid Black;
-    display: inline-block;
-    color: #f07e6e;
-    border-radius: 3px;
-    text-transform: uppercase
-}
-
-label.check input:checked+span {
-    border-color: #f07e6e;
-    background-color: #f07e6e;
-    color: #fff
+/* Style the active class (and buttons on mouse-over) */
+.active, .btn:hover {
+  background-color: #666;
+  color: white;
 }
