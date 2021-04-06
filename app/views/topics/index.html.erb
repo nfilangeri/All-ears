@@ -36,6 +36,18 @@
 <div class="title-card-sections">
   <h1 class="text-center mb-4">We're always all ears - join in!</h1>
 </div>
+<div>
+  <% if user_signed_in? %>
+    <h2>Your topics</h2>
+      <% @topics.map do |topic| %>
+        <% if topic.user_id == current_user.id %>
+          <div>
+            <%= topic %>
+          </div>
+        <% end %>
+      <% end %>
+  <% end %>
+</div>
 <div class="all-articles-results">
   <% @topics.each do |topic|%>
     <div class="card-product">
