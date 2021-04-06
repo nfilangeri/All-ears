@@ -4,6 +4,7 @@ class TopicsController < ApplicationController
 
   def index
 
+
     @topic = Topic.new
 
     if !params[:category].nil?
@@ -45,6 +46,7 @@ class TopicsController < ApplicationController
 
   def get_topics
     @page = @topics.each_slice(6).to_a
+
   end
 
   def params_topic
