@@ -50,15 +50,15 @@ label.check input {
 
 label.check span {
     padding: 7px 14px;
-    border: 2px solid Green;
+    border: 2px solid Black;
     display: inline-block;
-    color: #8f37aa;
+    color: #f07e6e;
     border-radius: 3px;
     text-transform: uppercase
 }
 
 label.check input:checked+span {
-    border-color: #8f37aa;
-    background-color: #8f37aa;
+    border-color: #f07e6e;
+    background-color: #f07e6e;
     color: #fff
 }
