@@ -4,6 +4,7 @@ class TopicsController < ApplicationController
 
   def index
     @topic= Topic.new
+    @mytopics = current_user.topics
     @topics = Topic.paginate(:page => params[:page], :per_page => 6)
   end
 
@@ -36,6 +37,7 @@ class TopicsController < ApplicationController
 
   def get_topics
     @page = @topics.each_slice(6).to_a
+
   end
 
   def params_topic

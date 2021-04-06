@@ -20,3 +20,8 @@
     margin-left: 25px;
     margin-top: 25px;
 }
+
+body > div.mytopics {
+    max-height: 35vh;
+    overflow-y: scroll;
+}
