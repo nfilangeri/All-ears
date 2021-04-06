@@ -44,7 +44,7 @@ puts "creating topics"
     topic = Topic.new(
         subject: "Countries are suspending AstraZeneca vaccinations?",
         content: "The EMA says there is “no indication that vaccination has caused these conditions”, adding that the number of reports of blood clots in people who received the AstraZeneca vaccine was no higher than for those who hadn’t gotten the shot. So this makes me wonder why are so many countries cancelling orders?",
-        user_id: (1..10).sample,
+        user_id: User.all.map(&:id).sample,
         category: "Health"
     )
     topic.save!
