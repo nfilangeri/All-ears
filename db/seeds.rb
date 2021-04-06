@@ -139,7 +139,7 @@ puts "creating topics"
 
     topic = Topic.new(
         subject:"No meat in school cafetarias",
-        content: "The French government has criticised Lyon's mayor after he removed meat from school lunches in the city. Gregory Doucet, a member of the Green party, has said the move allows service to be streamlined and quickened amid coronavirus restrictions. But the government has hit back, accusing him of risking children's health. 'Let's stop putting ideology on our children's plates', wrote Agriculture Minister Julien Denormandie."
+        content: "The French government has criticised Lyon's mayor after he removed meat from school lunches in the city. Gregory Doucet, a member of the Green party, has said the move allows service to be streamlined and quickened amid coronavirus restrictions. But the government has hit back, accusing him of risking children's health. 'Let's stop putting ideology on our children's plates', wrote Agriculture Minister Julien Denormandie.",
         user_id: User.all.map(&:id).sample,
         category:"Global"
     )
