@@ -8,25 +8,6 @@ require 'faker'
  User.destroy_all
  Search.destroy_all
 
-# puts "creating search"
-
-# search = Search.new(query: "covid")
-# search.save!
-
-# search = Search.new(query: "hong kong")
-# search.save!
-
-# search = Search.new(query: "brexit")
-# search.save!
-
-# search = Search.new(query: "lockdown")
-# search.save!
-
-# search = Search.new(query: "pfizer")
-# search.save!
-
-# search = Search.new(query: "biden")
-# search.save!
 
 
 puts "creating users"
@@ -156,6 +137,14 @@ puts "creating topics"
     )
     topic.save!
 
+    topic = Topic.new(
+        subject:"No meat in school cafetarias",
+        content: "The French government has criticised Lyon's mayor after he removed meat from school lunches in the city. Gregory Doucet, a member of the Green party, has said the move allows service to be streamlined and quickened amid coronavirus restrictions. But the government has hit back, accusing him of risking children's health. 'Let's stop putting ideology on our children's plates', wrote Agriculture Minister Julien Denormandie."
+        user_id: User.all.map(&:id).sample,
+        category:"Global"
+    )
+    topic.save!
+
 
 puts "creating newspapers"
 
@@ -229,10 +218,28 @@ puts "creating objectiveness ratings"
         article_id:  Faker::Number.within(range: 1..10),
         rating: Faker::Number.within(range: 1..100),
     )
-    rating.save
+    rating.save!
 end
 
+puts "creating search"
 
+search = Search.new(query: "covid")
+search.save!
+
+search = Search.new(query: "hong kong")
+search.save!
+
+search = Search.new(query: "brexit")
+search.save!
+
+search = Search.new(query: "lockdown")
+search.save!
+
+search = Search.new(query: "pfizer")
+search.save!
+
+search = Search.new(query: "biden")
+search.save!
 
 
 puts "Done!"
