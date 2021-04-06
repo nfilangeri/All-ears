@@ -197,29 +197,29 @@ puts "creating newspapers"
     )
     vox.save!
 
-# puts "creating Articles"
-# 5.times do
-#   article = Article.new(
-#     search_id:2,
-#     newspaper_id:1,
-#     title: "hello",
-#     content: "bla bla",
-#     description: "oh my",
-#     publication_date: "10/12",
-#     image: "https://gocycle.com/wp-content/uploads/2019/02/theguardian.jpg"
-#     )
-#   article.save!
-# end
+puts "creating Articles"
+5.times do
+  article = Article.new(
+    search_id:2,
+    newspaper_id:1,
+    title: "hello",
+    content: "bla bla",
+    description: "oh my",
+    publication_date: "10/12",
+    image: "https://gocycle.com/wp-content/uploads/2019/02/theguardian.jpg"
+    )
+  article.save!
+end
 
-# puts "creating objectiveness ratings"
-# 1000.times do
-#     rating = Rating.new(
-#         user_id: User.all.map(&:id).sample,
-#         article_id:  Faker::Number.within(range: 1..10),
-#         rating: Faker::Number.within(range: 1..100),
-#     )
-#     rating.save!
-# end
+puts "creating objectiveness ratings"
+1000.times do
+    rating = Rating.new(
+        user_id: User.all.map(&:id).sample,
+        article_id:  Faker::Number.within(range: 1..10),
+        rating: Faker::Number.within(range: 1..100),
+    )
+    rating.save!
+end
 
 puts "creating search"
 
