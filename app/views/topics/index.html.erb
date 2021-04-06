@@ -1,5 +1,5 @@
 <button type="button" id="createBtn" class="btn btn-ghost" data-toggle="modal" data-target="#modalPoll-1">Create a new topic</button>
-
+<%# bouton pour trigger la modal %>
 <div class="modal fade right" id="modalPoll-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true" data-backdrop="false">
   <div class="modal-dialog modal-full-height modal-right modal-notify modal-info" role="document">
@@ -18,12 +18,12 @@
             <strong>New Topic Title</strong>
           </p>
 
-
+<%# formulaire pour créer un nouveau topic %>
             <%= simple_form_for @topic do |f| %>
               <%= f.input :subject %>
               <%= f.input :content %>
               <%= f.input :category, collection: Topic.categories, include_blank: false  %>
-
+              <%= f.input :photo, as: :file %>
               <%= f.submit "Create topic", class: "btn btn-ghost" %>
             <% end %>
 
@@ -33,37 +33,54 @@
   </div>
 </div>
 
-<div class="title-card-sections">
-  <h1 class="text-center mb-4">We're always all ears - join in!</h1>
+<%# une box avec les topics utilisateur %>
+<div class="mytopics">
+  <div class="all-articles-results">
+    <% if user_signed_in? %>
+          <div class="title-card-sections">
+            <h2 class="text-center mb-4">Your topics</h2>
+          </div>
+      <% @mytopics.map do |topic| %>
+          <div class="card-product">
+            <% if topic.photo.attached?%>
+                <%= cl_image_tag @topic.photo.key, height: 150, width: 200, crop: :fill %>
+            <% else %>
+                <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=150&q=80", alt="newspapers image">
+            <% end %>
+            <div class="card-product-infos">
+              <h2><%= link_to topic.subject, topic_path(topic) %></h2>
+              <p><%= link_to topic.content.first(180), topic_path(topic) %></p>
+              <h2><%= topic.category %></h2>
+            </div>
+          </div>
+        <% end %>
+    <% end %>
+  </div>
 </div>
-<div>
-  <% if user_signed_in? %>
-    <h2>Your topics</h2>
-      <% @topics.map do |topic| %>
-        <% if topic.user_id == current_user.id %>
-          <div>
-            <%= topic %>
+
+<%# une box avec tous les topics %>
+  <div class="title-card-sections">
+    <h1 class="text-center mb-4">We're always all ears - join in!</h1>
+  </div>
+
+  <div class="all-articles-results">
+    <% @topics.each do |topic|%>
+      <% unless topic.user_id == current_user.id %>
+        <div class="card-product">
+          <% if topic.photo.attached?%>
+              <%= cl_image_tag @topic.photo.key, height: 150, width: 200, crop: :fill %>
+          <% else %>
+              <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=150&q=80", alt="newspapers image">
+          <% end %>
+            <div class="card-product-infos">
+              <h2><%= link_to topic.subject, topic_path(topic) %></h2>
+              <p><%= link_to topic.content.first(180), topic_path(topic) %></p>
+              <h2><%= topic.category %></h2>
+            </div>
           </div>
         <% end %>
       <% end %>
-  <% end %>
-</div>
-<div class="all-articles-results">
-  <% @topics.each do |topic|%>
-    <div class="card-product">
-        <% if topic.photo.attached?%>
-            <%= cl_image_tag @topic.photo.key, height: 150, width: 200, crop: :fill %>
-        <% else %>
-            <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=150&q=80", alt="newspapers image">
-        <% end %>
-      <div class="card-product-infos">
-        <h2><%= link_to topic.subject, topic_path(topic) %></h2>
-        <p><%= link_to topic.content.first(180), topic_path(topic) %></p>
-        <h2><%= topic.category %></h2>
-      </div>
-    </div>
-    <% end %>
-</div>
-<div class="d-flex justify-content-center pagination">
-  <%= will_paginate @topics, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
-</div>
+  </div>
+  <div class="d-flex justify-content-center pagination">
+    <%= will_paginate @topics, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+  </div>
