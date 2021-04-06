@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
         @comment.article = @article
         @comment.user = current_user
         if @comment.save
-            redirect_to article_path(@article), anchor: "comment-#{@comment.id}"
+            redirect_to article_path(@article, anchor: "comment-#{@comment.id}")
         end
     end
 
