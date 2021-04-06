@@ -19,7 +19,7 @@
                 <div class="p-4">
                   <div class="row">
                     <div class="col-lg-6 mb-4">
-                      <h6 class="font-weight-bold text-uppercase">Trending</h6>
+                      <h6 class="font-weight-bold text-uppercase">Categories</h6>
                       <div class="menu-display">
                         <ul class="list-unstyled">
                           <li class="nav-item"><a href="https://all-ears-open.herokuapp.com/searches/27" class="nav-link text-small pb-0">Health</a></li>
@@ -89,18 +89,20 @@
                 <%= image_tag "https://media.istockphoto.com/vectors/man-icon-vector-illustration-vector-id576606262?s=612x612", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <% end %>
-                <%= link_to "Edit profile", edit_user_registration_path(current_user), class: "dropdown-item" %>            
+                <%= link_to "Edit profile", edit_user_registration_path(current_user), class: "dropdown-item" %>
                 <%= link_to "See Profile", user_path(current_user), class: "dropdown-item" %>
                 <%= link_to'Logout', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </li>
           <% else %>
             <li>
-              <%= link_to'Logout', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+
+              <%= link_to'Log in', new_user_session_path, class: "btn btn-ghost" %>
+
             </li>
           <% end %>
           </div>
         </li>
       </ul>
     </div>
-  </div>  
+  </div>
 </nav>

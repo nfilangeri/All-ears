@@ -1,7 +1,9 @@
 class TopicsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_topics, only: [:show, :update, :destroy]
 
   def index
+
     @topic = Topic.new
 
     if !params[:category].nil?
@@ -24,7 +26,6 @@ class TopicsController < ApplicationController
     if @topic.save
       redirect_to topics_path
     end
-
   end
 
   def update
@@ -40,12 +41,11 @@ class TopicsController < ApplicationController
     redirect_to topics_path
   end
 
+  private
+
   def get_topics
     @page = @topics.each_slice(6).to_a
   end
-
-
-private
 
   def params_topic
     params.require(:topic).permit(:subject, :content, :user, :category)
