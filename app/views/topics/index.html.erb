@@ -37,9 +37,11 @@
 <div class="mytopics">
   <div class="all-articles-results">
     <% if user_signed_in? %>
+      <% unless @mytopics.empty? %>
           <div class="title-card-sections">
             <h2 class="text-center mb-4">Your topics</h2>
           </div>
+      <% end %>
       <% @mytopics.map do |topic| %>
           <div class="card-product">
             <% if topic.photo.attached?%>
