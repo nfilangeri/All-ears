@@ -39,7 +39,7 @@
     <% if user_signed_in? %>
       <% unless @mytopics.empty? %>
           <div class="title-card-sections">
-            <h2 class="text-center mb-4">Your topics</h2>
+            <h1 class="text-center mb-4" id="yourtopics">Your topics</h1>
           </div>
       <% end %>
       <% @mytopics.map do |topic| %>

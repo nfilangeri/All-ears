@@ -61,7 +61,7 @@
         </div>
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
           <div class="card-body-1">
-           <% current_user.topics.each do |topic| %>
+            <% current_user.topics.each do |topic| %>
           <div class="card-product">
             <% if topic.photo.attached?%>
                 <%= cl_image_tag topic.photo.key, height: 150, width: 200, crop: :fill %>
