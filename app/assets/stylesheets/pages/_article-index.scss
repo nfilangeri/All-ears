@@ -1,5 +1,9 @@
 .index-all{
   width:1350px;
+      a{
+        text-decoration: none;
+        color: black;
+      }
       img {
         object-fit: cover;
       }
@@ -47,10 +51,9 @@
 
 .second-row {
   display:grid;
-  grid-template-columns: 3fr 1fr;
-  grid-gap:20px;
-  border-bottom: 1px solid #DBDBDB;
-  margin-bottom: 100px;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 20px;
+
 }
 
 .fifth-sixth-seventh{
@@ -62,3 +65,23 @@
 .ninth-tenth{
   margin-bottom:20px;
 }
+
+.second-card{
+  border-bottom: 1px solid #DBDBDB;
+  margin-bottom:20px;
+  margin-right: 20px;
+}
+
+.second-card:last-child{
+  border-bottom: 0px solid #DBDBDB;
+
+}
+
+.big-eight-card:last-child{
+  border-top: 1px solid #DBDBDB;
+    img{
+      margin-top:20px;
+    }
+}
+
+
