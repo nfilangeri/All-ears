@@ -2,13 +2,13 @@
 
 
   <div id="myDIV" data-category="<%= params[:category] %>">
-    <%= link_to "Science", topics_path(category: "Science"), class: "btn #{params[:category] == 'Science' ? 'active': "" }"  %>
-    <%= link_to "Politics", topics_path(category: "Politics"), class: "btn #{params[:category] == 'Politics' ? 'active': "" }"  %>
-    <%= link_to "Education", topics_path(category: "Education"), class: "btn #{params[:category] == 'Science' ? 'active': "" }"  %>
-    <%= link_to "Health", topics_path(category: "Health"), class: "btn #{params[:category] == 'Science' ? 'active': "" }"  %>
-    <%= link_to "Global", topics_path(category: "Global"), class: "btn #{params[:category] == 'Science' ? 'active': "" }"  %>
-    <%= link_to "People", topics_path(category: "People"), class: "btn #{params[:category] == 'Science' ? 'active': "" }"  %>
-    <%= link_to "Culture", topics_path(category: "Culture"), class: "btn #{params[:category] == 'Science' ? 'active': "" }"  %>
+    <%= link_to "Science", topics_path(category: "Science"), class: "btn-c #{params[:category] == 'Science' ? 'active': "" }"  %>
+    <%= link_to "Politics", topics_path(category: "Politics"), class: "btn-c #{params[:category] == 'Politics' ? 'active': "" }"  %>
+    <%= link_to "Education", topics_path(category: "Education"), class: "btn-c #{params[:category] == 'Science' ? 'active': "" }"  %>
+    <%= link_to "Health", topics_path(category: "Health"), class: "btn-c #{params[:category] == 'Science' ? 'active': "" }"  %>
+    <%= link_to "Global", topics_path(category: "Global"), class: "btn-c #{params[:category] == 'Science' ? 'active': "" }"  %>
+    <%= link_to "People", topics_path(category: "People"), class: "btn-c #{params[:category] == 'Science' ? 'active': "" }"  %>
+    <%= link_to "Culture", topics_path(category: "Culture"), class: "btn-c #{params[:category] == 'Science' ? 'active': "" }"  %>
 </div>
 
 <script>
