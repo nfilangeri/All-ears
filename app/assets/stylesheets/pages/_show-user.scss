@@ -32,6 +32,7 @@ h6 {
     margin-left: 10%;
     margin-top: 100px;
     margin-bottom: 50px;
+    margin-right: 150px;
 }
 
 #edit {
@@ -104,7 +105,15 @@ body > div.row > div.pic > div.row > img {
     width: 800px;
 }
 
+
+.all-accordion {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+
+}
+
 #edit > button > a {
     color: black;
 }
+
 
