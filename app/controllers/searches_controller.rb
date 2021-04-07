@@ -1,7 +1,5 @@
 class SearchesController < ApplicationController
-
-  skip_before_action :authenticate_user!, only: [:index]
-
+skip_before_action :authenticate_user!, only: [:index, :show, :create]
 
   def index
     @searches = Search.all
@@ -19,7 +17,7 @@ class SearchesController < ApplicationController
     if @search.valid?
       all_articles = Newspaper.all.map do |newspaper|
       newspaper.get_articles(@search)
-       end
+        end
         if all_articles != [nil, nil, nil, nil, nil, nil]
           @search.save
           redirect_to search_path(@search)
