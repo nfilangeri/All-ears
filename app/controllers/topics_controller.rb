@@ -5,7 +5,8 @@ class TopicsController < ApplicationController
   def index
 
     @topic = Topic.new
- 
+    @mytopics = current_user.topics
+
 
     if !params[:category].nil?
       @topics = Topic.where(category: params[:category]).paginate(:page => params[:page], :per_page => 6)
@@ -39,7 +40,7 @@ class TopicsController < ApplicationController
     @topic.destroy
     redirect_to topics_path
   end
-  
+
   private
 
   def get_topics
