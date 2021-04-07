@@ -16,7 +16,6 @@ class SearchesController < ApplicationController
 
   def create
     @search = Search.new(search_params)
-
     if @search.valid?
       all_articles = Newspaper.all.map do |newspaper|
       newspaper.get_articles(@search)

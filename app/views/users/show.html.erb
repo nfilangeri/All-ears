@@ -90,7 +90,7 @@
               <% @bookmarks.each do |b| %></p>
               <div class="card-product">
                 <%= image_tag b.article.get_thumbnail %>
-                <div class="card-product-all-infos-tag">
+                <div class="card-product-all-infos-tag-1">
                   <div class="card-product-infos">
                     <h2> <%= link_to b.article.title, article_path(b.article) %></h2>
                     <% if b.article.description.length > 100 %>

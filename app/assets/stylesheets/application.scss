@@ -1,3 +1,4 @@
+
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
@@ -11,6 +12,7 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "social-share-button";
 
 
 a, a:hover{
@@ -20,3 +22,4 @@ a, a:hover{
 body, h1, h2, h3, h4, h5, h6{
   font-family: Nimrod;
 }
+
