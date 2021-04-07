@@ -118,13 +118,13 @@
     <%= paragraph = '' %>
     <% elsif paragraph.length < 30 && paragraph.length > 5 && paragraph =~ /[A-Z]/%>
     <br>
-    <h5> <strong><%= paragraph %></strong></h5>
+    <h5> <strong><%= paragraph.downcase.capitalize %></strong></h5>
     <br>
     <% elsif paragraph.length < 30 && paragraph.length > 5 && paragraph !=~ /[A-Z]/%>
-    <%= paragraph %>
+    <%= paragraph.downcase.capitalize %>
     <% else %>
     <p>
-      <%= paragraph %>
+      <%= paragraph.downcase.capitalize %>
     </p>
     <% end %>
     <% end %>
