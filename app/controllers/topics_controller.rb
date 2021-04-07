@@ -7,6 +7,8 @@ class TopicsController < ApplicationController
 
     @topic = Topic.new
 
+    @mytopics = current_user.topics
+
 
     if !params[:category].nil?
       @topics = Topic.where(category: params[:category]).paginate(:page => params[:page], :per_page => 6)
