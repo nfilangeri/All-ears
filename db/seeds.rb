@@ -8,36 +8,6 @@ require 'faker'
  User.destroy_all
  Search.destroy_all
 
-
-
-puts "creating users"
-
-10.times do
-    user = User.new(
-        first_name: Faker::Name.first_name,
-        last_name: Faker::Name.last_name,
-        bio: Faker::Lorem.sentence(word_count: 30),
-        email: Faker::Internet.email(domain: 'all-ears'),
-        username: Faker::Internet.username,
-        password: "allears123",
-        birthdate: Faker::Date.birthday(min_age: 18, max_age: 120),
-    )
-    user.save!
-end
-
-puts " Creating master supreme"
-
-user = User.new(
-        first_name: Faker::Name.first_name,
-        last_name: Faker::Name.last_name,
-        bio: Faker::Lorem.sentence(word_count: 30),
-        email: "nicolas.filangeri@live.fr",
-        username: Faker::Internet.username,
-        password: "allears123",
-        birthdate: Faker::Date.birthday(min_age: 18, max_age: 120),
-    )
-    user.save!
-
 puts "creating newspapers"
 
     bbc = Newspaper.new(
@@ -88,51 +58,6 @@ puts "creating newspapers"
         engine: "4227251698055510725"
     )
     vox.save!
-
-puts "creating Articles"
-5.times do
-  article = Article.new(
-    search_id:2,
-    newspaper_id:1,
-    title: "hello",
-    content: "bla bla",
-    description: "oh my",
-    publication_date: "10/12",
-    image: "https://gocycle.com/wp-content/uploads/2019/02/theguardian.jpg"
-    )
-  article.save!
-end
-
-puts "creating objectiveness ratings"
-1000.times do
-    rating = Rating.new(
-        user_id: User.all.map(&:id).sample,
-        article_id:  Faker::Number.within(range: 1..10),
-        rating: Faker::Number.within(range: 1..100),
-    )
-    rating.save!
-end
-
-puts "creating search"
-
-search = Search.new(query: "covid")
-search.save!
-
-search = Search.new(query: "hong kong")
-search.save!
-
-search = Search.new(query: "brexit")
-search.save!
-
-search = Search.new(query: "lockdown")
-search.save!
-
-search = Search.new(query: "pfizer")
-search.save!
-
-search = Search.new(query: "biden")
-search.save!
-
 
 puts "Done!"
 
