@@ -4,7 +4,9 @@ class TopicsController < ApplicationController
 
   def index
 
+
     @topic = Topic.new
+
     @mytopics = current_user.topics
 
 
