@@ -2,6 +2,7 @@
 
 
   <div id="myDIV" data-category="<%= params[:category] %>">
+     <%= link_to "All", topics_path, class: "btn-c "%>
     <%= link_to "Science", topics_path(category: "Science"), class: "btn-c #{params[:category] == 'Science' ? 'active': "" }"  %>
     <%= link_to "Politics", topics_path(category: "Politics"), class: "btn-c #{params[:category] == 'Politics' ? 'active': "" }"  %>
     <%= link_to "Education", topics_path(category: "Education"), class: "btn-c #{params[:category] == 'Science' ? 'active': "" }"  %>

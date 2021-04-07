@@ -5,10 +5,16 @@
   padding: 10px 16px;
   background-color: #f1f1f1;
   cursor: pointer;
+   color: #4A4A4A;
+
 }
 
 /* Style the active class (and buttons on mouse-over) */
 .active, .btn-c:hover {
   background-color: #666;
   color: white;
+}
+
+#myDIV {
+  padding-bottom: 6px;
 }
