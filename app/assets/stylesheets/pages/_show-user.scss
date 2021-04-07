@@ -63,6 +63,10 @@ body > div.row > div.pic > div.row > img {
     color:black;
     font-weight: 900;
 }
+.card-header-2 {    text-decoration: none;
+    color:black;
+    font-weight: 900;
+}
 
 #info {
     list-style: none;
@@ -70,4 +74,19 @@ body > div.row > div.pic > div.row > img {
 
 .all-user-profil{
     display:flex;
+}
+
+.card-body-2{
+  overflow-y: scroll;
+  height: 300px;
+  margin-right:20px;
+  margin-left:20px;
+}
+
+.card-body-1{
+  overflow-y: scroll;
+  height: 300px;
+  margin-top: 20px;
+  margin-right:20px;
+  margin-left:20px;
 }

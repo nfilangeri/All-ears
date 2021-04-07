@@ -1,30 +1,33 @@
 
-<div class="row d-flex justify-content-center mt-100">
-      <div class="col-md-4">
-          <div class="card">
-              <div class="card-body text-center">
-                <%= link_to  topics_path(category: "People") do %>
-               <label class="check " id = "People"> <input type="checkbox" checked> <span>People</span> </label>
-               <% end %>
-                  <%= link_to  topics_path(category: "Culture") do %>
-                <label class="check" id ="Culture"> <input type="checkbox"> <span>Culture</span> </label>
-                  <% end %>
-                   <%= link_to  topics_path(category: "Education") do %>
-                 <label class="check" id = "Eductation"> <input type="checkbox"> <span>Education</span> </label>
-                 <% end %>
-                    <%= link_to  topics_path(category: "Global") do %>
-                  <label class="check" id = "Global"> <input type="checkbox"> <span>Global</span> </label>
-                  <% end %>
-                     <%= link_to  topics_path(category: "Health")do  %>
-                  <label class="check" id = "Health"> <input type="checkbox"> <span>Health</span> </label>
-                  <% end %>
-                     <%= link_to  topics_path(category: "Politics") do %>
-                  <label class="check" id = "Politics"> <input type="checkbox"> <span>Politics</span> </label>
-                  <% end %>
-                     <%= link_to  topics_path(category: "Science") do %>
-                  <label class="check" id = "Science"> <input type="checkbox"> <span>Science</span> </label>
-                  <% end %>
-              </div>
-          </div>
-      </div>
-  </div>
+
+
+  <div id="myDIV" data-category="<%= params[:category] %>">
+    <%= link_to "Science", topics_path(category: "Science"), class: "btn #{params[:category] == 'Science' ? 'active': "" }"  %>
+    <%= link_to "Politics", topics_path(category: "Politics"), class: "btn #{params[:category] == 'Politics' ? 'active': "" }"  %>
+    <%= link_to "Education", topics_path(category: "Education"), class: "btn #{params[:category] == 'Science' ? 'active': "" }"  %>
+    <%= link_to "Health", topics_path(category: "Health"), class: "btn #{params[:category] == 'Science' ? 'active': "" }"  %>
+    <%= link_to "Global", topics_path(category: "Global"), class: "btn #{params[:category] == 'Science' ? 'active': "" }"  %>
+    <%= link_to "People", topics_path(category: "People"), class: "btn #{params[:category] == 'Science' ? 'active': "" }"  %>
+    <%= link_to "Culture", topics_path(category: "Culture"), class: "btn #{params[:category] == 'Science' ? 'active': "" }"  %>
+</div>
+
+<script>
+// Get the container element
+var btnContainer = document.getElementById("myDIV");
+
+// Get all buttons with class="btn" inside the container
+var btns = btnContainer.getElementsByClassName("btn");
+
+// Loop through the buttons and add the active class to the current/clicked button
+// for (var i = 0; i < btns.length; i++) {
+//   btns[i].addEventListener("click", function() {
+    let topicCategory = btnContainer.dataset.category;
+    var current = document.getElementById(topicCategory);
+    console.log(current);
+    // current.classList.add("active");
+
+  // });
+// }
+</script>
+
+
