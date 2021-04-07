@@ -4,7 +4,9 @@ class TopicsController < ApplicationController
 
   def index
 
+
     @topic = Topic.new
+
     @mytopics = current_user.topics
 
 
@@ -49,7 +51,7 @@ class TopicsController < ApplicationController
   end
 
   def params_topic
-    params.require(:topic).permit(:subject, :content, :user, :category)
+    params.require(:topic).permit(:subject, :content, :user, :category, :photo)
   end
 
   def set_topics

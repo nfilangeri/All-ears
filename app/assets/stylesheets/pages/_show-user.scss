@@ -17,8 +17,7 @@ h6 {
 }
 
 #bio {
-    border-top: 1px solid darkgrey;
-    padding-left: 15%;
+    padding-left: 20px;
     padding-top: 10px;
 }
 
@@ -101,18 +100,20 @@ body > div.row > div.pic > div.row > img {
   align-items: center;
 }
 
-
 .modal-custom {
     height: 600px;
     width: 800px;
 }
 
-body > div.row > div.pic.mr-8 > div {
-  margin-right: 300px;
-}
 
 .all-accordion {
   display: grid;
   grid-template-columns: 3fr 1fr;
 
 }
+
+#edit > button > a {
+    color: black;
+}
+
+

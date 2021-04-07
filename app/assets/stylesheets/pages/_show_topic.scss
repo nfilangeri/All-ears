@@ -73,3 +73,8 @@
 i.author {
     padding: 10px 15px 10px 15px;
 }
+
+body > div:nth-child(2) > div.container > div > div > div:nth-child(1) > h2 {
+    text-decoration: underline;
+    padding-bottom: 50px;
+}
