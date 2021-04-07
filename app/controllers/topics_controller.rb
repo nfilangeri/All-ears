@@ -3,17 +3,14 @@ class TopicsController < ApplicationController
   before_action :set_topics, only: [:show, :update, :destroy]
 
   def index
-
     @topic = Topic.new
     @mytopics = current_user.topics
-
 
     if !params[:category].nil?
       @topics = Topic.where(category: params[:category]).paginate(:page => params[:page], :per_page => 6)
     else
       @topics = Topic.all.paginate(:page => params[:page], :per_page => 6)
     end
-
   end
 
   def show
