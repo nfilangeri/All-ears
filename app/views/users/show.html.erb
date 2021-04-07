@@ -77,6 +77,8 @@
         <% end %>
           </div>
         </div>
+        </div>
+
         <div class="card">
           <div class="card-header" id="headingFour">
             <h5 class="mb-0">
@@ -90,7 +92,7 @@
               <% @bookmarks.each do |b| %></p>
               <div class="card-product">
                 <%= image_tag b.article.get_thumbnail %>
-                <div class="card-product-all-infos-tag">
+                <div class="card-product-all-infos-tag-1">
                   <div class="card-product-infos">
                     <h2> <%= link_to b.article.title, article_path(b.article) %></h2>
                     <% if b.article.description.length > 100 %>
@@ -125,8 +127,8 @@
             </div>
           </div>
         </div>
-      </div>
     </div>
+
       <div class="pic">
         <div class="row">
           <% if current_user.photo.attached? %>

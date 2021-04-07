@@ -22,18 +22,18 @@
                       <h6 class="font-weight-bold text-uppercase">Categories</h6>
                       <div class="menu-display">
                         <ul class="list-unstyled">
-                          <li class="nav-item"><a href="https://all-ears-open.herokuapp.com/searches/27" class="nav-link text-small pb-0">Health</a></li>
-                          <li class="nav-item"><a href="https://all-ears-open.herokuapp.com/searches/28" class="nav-link text-small pb-0 ">Global</a></li>
-                          <li class="nav-item"><a href="https://all-ears-open.herokuapp.com/searches/22" class="nav-link text-small pb-0 ">Science</a></li>
-                          <li class="nav-item"><a href="https://all-ears-open.herokuapp.com/searches/21" class="nav-link text-small pb-0 ">Politics</a></li>
+                          <li class="nav-item"><%= link_to "Health", searches_path(search: {query:"health"}), method: :post, class: "nav-link text-small pb-0"%></li>
+                          <li class="nav-item"><%= link_to "Global", searches_path(search: {query:"global"}), method: :post, class: "nav-link text-small pb-0"%></li>
+                          <li class="nav-item"><%= link_to "Science", searches_path(search: {query:"science"}), method: :post, class: "nav-link text-small pb-0"%></li></li>
+                          <li class="nav-item"><%= link_to "Politics", searches_path(search: {query:"politics"}), method: :post, class: "nav-link text-small pb-0"%></li></li>
                         </ul>
                       <div class="col-lg-6 mb-4">
                         <h6 class="font-weight-bold text-uppercase"></h6>
                         <ul class="list-unstyled">
-                          <li class="nav-item"><a href="https://all-ears-open.herokuapp.com/searches/25" class="nav-link text-small pb-0 ">Education</a></li>
-                          <li class="nav-item"><a href="https://all-ears-open.herokuapp.com/searches/29" class="nav-link text-small pb-0 ">Culture</a></li>
-                          <li class="nav-item"><a href="https://all-ears-open.herokuapp.com/searches/31" class="nav-link text-small pb-0 ">Coronavirus</a></li>
-                          <li class="nav-item"><a href="https://all-ears-open.herokuapp.com/searches/30" class="nav-link text-small pb-0 ">People</a></li>
+                          <li class="nav-item"><%= link_to "Education", searches_path(search: {query:"education"}), method: :post, class: "nav-link text-small pb-0"%></li></li>
+                          <li class="nav-item"><%= link_to "Culture", searches_path(search: {query:"culture"}), method: :post, class: "nav-link text-small pb-0"%></li></li>
+                          <li class="nav-item"><%= link_to "Coronavirus", searches_path(search: {query:"coronavirus"}), method: :post, class: "nav-link text-small pb-0"%></li></li>
+                          <li class="nav-item"><%= link_to "People", searches_path(search: {query:"people"}), method: :post, class: "nav-link text-small pb-0"%></li></li>
                         </ul>
                       </div>
                       </div>
@@ -70,9 +70,9 @@
 
 
     </ul>
-    <%= simple_form_for @search_query, html:{class: "form-inline search-form"} do |t| %>
+    <%= simple_form_for @search_query, html:{class: "form-inline search-form mr-3"} do |t| %>
       <%= t.input :query, label: false, placeholder:"What's your Topic ? ..." %>
-      <%= t.button :button, {class: 'button postfix'} do %><i class="fas fa-search"></i><% end %>
+      <%= t.button :button, {class: 'btn btn-ghost'} do %><i class="fas fa-search"></i><% end %>
     <% end %>
 
   </div>
