@@ -1,7 +1,6 @@
 <div class="row mt-4 ml-5" id="back">
         <%= link_to 'Back to article choice', :back, class: "btn btn-ghost" %>
     </div>
-    <%= social_share_button_tag(@article.title, :allow_sites => %w(twitter), onclick: ' return ') %>
 <div class="container">
   <div class="whole-article-beggining">
     <div class="article-info">
@@ -79,12 +78,12 @@
     </div>
   </div>
   <div class="social-share">
-
+    <div class="share-btn">
     <a href="https://www.instagram.com/"><i class="fab fa-instagram "></i></a>
-    <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
-    <a href="https://twitter.com/?lang=en"><i class="fab fa-twitter"></i></a>
-    <a href="https://fr.linkedin.com/"><i class="fab fa-linkedin"></i></a>
-    <a href="https://fr.linkedin.com/"><i class="fab fa-whatsapp"></i></i></a>
+    <a class="btn-facebook" data-id="fb"><i class="fab fa-facebook"></i></a>
+    <a class="btn-twitter" data-id="tw"><i class="fab fa-twitter"></i></a>
+    <a class="btn-mail" data-id="mail"><i class="fas fa-envelope-square"></i></i></a>
+    <a class="btn-whatsapp" data-id="wa"><i class="fab fa-whatsapp"></i></i></a>
     <% user_bookmark = @article.bookmarks.each do|bookmark| %>
       <% bookmark.user == current_user%>
     <% end %>
@@ -97,6 +96,7 @@
       <i class="fas fa-bookmark fa"></i>
     <% end %>
   <% end %>
+  </div>
   </div>
 
 

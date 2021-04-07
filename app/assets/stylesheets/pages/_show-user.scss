@@ -33,6 +33,7 @@ h6 {
     margin-left: 10%;
     margin-top: 100px;
     margin-bottom: 50px;
+    margin-right: 150px;
 }
 
 #edit {
@@ -104,4 +105,14 @@ body > div.row > div.pic > div.row > img {
 .modal-custom {
     height: 600px;
     width: 800px;
+}
+
+body > div.row > div.pic.mr-8 > div {
+  margin-right: 300px;
+}
+
+.all-accordion {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+
 }

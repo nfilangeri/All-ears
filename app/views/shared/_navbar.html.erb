@@ -71,7 +71,7 @@
 
     </ul>
     <%= simple_form_for @search_query, html:{class: "form-inline search-form mr-3"} do |t| %>
-      <%= t.input :query, label: false, placeholder:"What's your Topic ? ..." %>
+      <%= t.input :query, label: false, placeholder:"Input news story" %>
       <%= t.button :button, {class: 'btn btn-ghost'} do %><i class="fas fa-search"></i><% end %>
     <% end %>
 
