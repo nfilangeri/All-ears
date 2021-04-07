@@ -50,7 +50,23 @@
     </div>
   </div>
 
+<script>
+  var bookmark = document.querySelector('.fa-bookmark');
 
+  bookmark.onclick = function () {
+   this.style.color = "black"
+  };
+</script>
+
+<% if user_bookmark.present? %>
+      <i class="fas fa-bookmark fa"></i>
+      <% end %>
+    <% user_bookmark = @article.bookmarks.each do|bookmark| %>
+      <%= bookmark.user == current_user%>
+    <% end %>
+    <%= link_to article_bookmarks_path(@article, current_user), method: :post do %>
+      <i class="fas fa-bookmark fa"></i>
+    <% end %>
 
 
 

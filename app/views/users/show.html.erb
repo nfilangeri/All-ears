@@ -1,85 +1,145 @@
-<div class="row">
+  <div class="row">
     <div id="accordion">
-        <div class="card">
-            <div class="card-header" id="headingOne">
-                <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Personal informations
-                    </button>
-                </h5>
-            </div>
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                <div class="card-body">
-                    <div>
-                    <ul id="info">
-                        <li class="item">
-                            <h6>First Name</h6>
-                            <p><%= current_user.first_name %></p>
-                        </li>
-                        <li class="item">
-                            <h6>Last Name</h6>
-                            <p><%= current_user.last_name %></p>
-                        </li>
-                        <li class="item">
-                            <h6>Username</h6>
-                            <p><%= current_user.username %></p>
-                        </li>
-                        <li class="last-item">
-                            <h6>Birthday</h6>
-                            <p><%= current_user.birthdate %></p>
-                        </li>
-                    </ul>
-                    </div>
-                </div>
-                        <div id="bio">
-                            <h6>Bio</h6>
-                            <p><%= current_user.bio %></p>
-                        </div>
-            </div>
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Personal informations
+            </button>
+          </h5>
         </div>
-        <div class="card">
-            <div class="card-header" id="headingTwo">
-                <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Interests
-                    </button>
-                </h5>
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+          <div class="card-body">
+            <div>
+              <ul id="info">
+                <li class="item" id="user-show">
+                  <h6>First Name</h6>
+                  <p><%= current_user.first_name %></p>
+                </li>
+                <li class="item" id="user-show">
+                  <h6>Last Name</h6>
+                  <p><%= current_user.last_name %></p>
+                </li>
+                <li class="item" id="user-show">
+                  <h6>Username</h6>
+                  <p><%= current_user.username %></p>
+                </li>
+                <li class="last-item">
+                  <h6>Birthday</h6>
+                  <p><%= current_user.birthdate %></p>
+                </li>
+              </ul>
             </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                </div>
-            </div>
+          </div>
+          <div id="bio">
+            <h6>Bio</h6>
+            <p><%= current_user.bio %></p>
+          </div>
         </div>
-        <div class="card">
-            <div class="card-header" id="headingThree">
-                <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Topics
-                    </button>
-                </h5>
-            </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                <div class="card-body">
-                    <% current_user.topics.each do |topic| %>
-                        <%= topic.subject %>
-                    <% end %>
-                </div>
-            </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Interests
+            </button>
+          </h5>
         </div>
-    </div>
-    <div class="pic">
-        <div class="row">
-            <% if current_user.photo.attached? %>
-                <%= cl_image_tag current_user.photo.key %>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+          <div class="card-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Topics
+            </button>
+          </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+          <div class="card-body-1">
+            <% current_user.topics.each do |topic| %>
+          <div class="card-product">
+            <% if topic.photo.attached?%>
+                <%= cl_image_tag topic.photo.key, height: 150, width: 200, crop: :fill %>
             <% else %>
-                <%= image_tag "https://freepikpsd.com/wp-content/uploads/2019/10/default-avatar-png-3-Transparent-Images.png" %>
+                <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=150&q=80", alt="newspapers image">
             <% end %>
+            <div class="card-product-infos">
+              <h2><%= link_to topic.subject, topic_path(topic) %></h2>
+              <p><%= link_to topic.content.first(180), topic_path(topic) %></p>
+              <h2><%= topic.category %></h2>
+            </div>
+          </div>
+        <% end %>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingFour">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                Bookmarks
+              </button>
+            </h5>
+          </div>
+          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+            <div class="card-body-2">
+              <% @bookmarks.each do |b| %></p>
+              <div class="card-product">
+                <%= image_tag b.article.get_thumbnail %>
+                <div class="card-product-all-infos-tag">
+                  <div class="card-product-infos">
+                    <h2> <%= link_to b.article.title, article_path(b.article) %></h2>
+                    <% if b.article.description.length > 100 %>
+                    <p><%= link_to b.article.description.first(100), article_path(b.article) %> (...)</p>
+                    <% else %>
+                    <p><%= link_to b.article.description.first(100), article_path(b.article) %></p>
+                    <% end %>
+                  </div>
+                  <div class="card-product-tag d-flex align-items-center mr-3">
+                    <% if b.article.newspaper.tag_political == "Lean Left" %>
+                    <i class="fas fa-arrow-left"></i>
+                    <% elsif b.article.newspaper.tag_political == "Lean Right" %>
+                    <i class="fas fa-arrow-right"></i>
+                    <% elsif b.article.newspaper.tag_political == "Center" %>
+                    <i class="fas fa-arrow-up"></i>
+                    <% elsif b.article.newspaper.tag_political == "Hard Right" %>
+                    <i class="fas fa-arrow-right"></i>
+                    <i class="fas fa-arrow-right"></i>
+                    <% elsif b.article.newspaper.tag_political == "Hard Left" %>
+                    <i class="fas fa-arrow-left"></i>
+                    <i class="fas fa-arrow-left"></i>
+                    <% elsif b.article.newspaper.tag_political == "Center - Financial" %>
+                    <i class="fas fa-arrow-up"></i>
+                    <% elsif b.article.newspaper.tag_political == "Lean Left - Financial" %>
+                    <i class="fas fa-arrow-left"></i>
+                    <% end %>
+                    <%= image_tag b.article.newspaper.image  %>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="pic">
+        <div class="row">
+          <% if current_user.photo.attached? %>
+          <%= cl_image_tag current_user.photo.key %>
+          <% else %>
+          <%= image_tag "https://freepikpsd.com/wp-content/uploads/2019/10/default-avatar-png-3-Transparent-Images.png" %>
+          <% end %>
         </div>
         <div id="edit">
-            <button class="btn btn-ghost">
-                <%= link_to "Edit", edit_user_registration_path(current_user) %>            
-            </button>
+          <button class="btn btn-ghost">
+            <%= link_to "Edit", edit_user_registration_path(current_user) %>
+          </button>
         </div>
-    </div>
-</div>
+      </div>
+  </div>
+

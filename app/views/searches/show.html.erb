@@ -1,18 +1,14 @@
-<% if @searches.nil? %>
-  <div class="error">
-    <h1> Sorry, nothing matches your research, please try something else !! </h1>
-  </div>
-<% end %>
-
-<% unless @searches.nil? %>
-  <div class="title-card-sections">
-    <h1 class="text-center mb-4 mt-4">All the sides of the <%= @search.query.capitalize %> narrative</h1>
-    <p class="text-center"><button type="button" class="btn btn-ghost" data-toggle="modal" data-target="#exampleModal">
+<% if @search.articles.empty? %>
+<div class="error">
+  <h1> Sorry, nothing matches your research, please try something else !! </h1>
+</div>
+<% else %>
+<div class="title-card-sections">
+  <h1 class="text-center mb-4 mt-4">All the sides of the <%= @search.query.capitalize %> narrative</h1>
+  <p class="text-center"><button type="button" class="btn btn-ghost" data-toggle="modal" data-target="#exampleModal">
     Arrow guide
   </button></p>
-  </div>
-<% end %>
-<!-- Button trigger modal -->
+</div>
 
 
 <!-- Modal -->
@@ -44,9 +40,9 @@
       <div class="card-product-infos">
         <h2> <%= link_to article.title, article_path(article) %></h2>
         <% if article.description.length > 100 %>
-        <p><%= article.description.first(100) %> (...)</p>
+        <p><%= link_to article.description.first(100), article_path(article) %> (...)</p>
         <% else %>
-        <p><%= article.description.first(100) %></p>
+        <p><%= link_to article.description.first(100), article_path(article) %></p>
         <% end %>
       </div>
       <div class="card-product-tag d-flex align-items-center mr-3">
@@ -71,5 +67,9 @@
       </div>
     </div>
   </div>
+
   <% end %>
 </div>
+<% end %>
+
+

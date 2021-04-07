@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-  # before_action :authenticate_user!, only: :show
   before_action :set_articles, only: [:show, :create, :destroy]
 
   def index
@@ -15,6 +14,7 @@ class ArticlesController < ApplicationController
     @rating = Rating.new
     @user_rating = @article.ratings.where(user: current_user)
     @user_rating_first = @article.ratings.where(user: current_user).first
+    @bookmark = @article.bookmarks.where(user: current_user).first
   end
 
   def create
