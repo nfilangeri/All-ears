@@ -37,7 +37,7 @@
         </div>
       </div>
       <div id="photo-rating">
-        <div>
+        <div class="newspaper-image">
           <%= image_tag @article.image, width:800, height:400 %>
         </div>
         <div id="object-and-user-rating">
@@ -71,15 +71,11 @@
           </div>
           <% end %>
         </div>
-        <div class="rating-thank-you">
-          <h3>Thank you for rating!</h3>
-        </div>
       </div>
     </div>
   </div>
   <div class="social-share">
     <div class="share-btn">
-    <a href="https://www.instagram.com/"><i class="fab fa-instagram "></i></a>
     <a class="btn-facebook" data-id="fb"><i class="fab fa-facebook"></i></a>
     <a class="btn-twitter" data-id="tw"><i class="fab fa-twitter"></i></a>
     <a class="btn-mail" data-id="mail"><i class="fas fa-envelope-square"></i></i></a>
@@ -103,7 +99,7 @@
 
   <div class="article-content">
     <% content = @article.content %>
-    <% content = content.remove('Image copyright', 'Image caption','Adds details and background','RELATED ARTICLES', 'see also','shares','or comment on this article:','Share this article', 'Share','To continue reading this article you must be a Bloomberg Professional Service Subscriber.','seepagefrom','e-mail', 'Email', 'email' 'Close', 'Published', 'Filed under', 'By', 'PA Media', 'image caption', 'image copyright', '|', 'Share or comment on this article:', 'Sorry we are not currently accepting comments on this article.', 'Bing', 'Our Standards:', 'Getty Images', 'Slideshow', 'newsletter', 'Next Up In', 'For You', 'Related Topics', 'Reuters', 'FILE PHOTO:', 'media caption') %>
+    <% content = content.remove('Show more','Show less','Associated Press','Staff','Image copyright', 'Image caption','Adds details and background','RELATED ARTICLES', 'see also','shares','or comment on this article:','Share this article', 'Share','To continue reading this article you must be a Bloomberg Professional Service Subscriber.','seepagefrom','e-mail', 'Email', 'email' 'Close', 'Published', 'Filed under', 'By', 'PA Media', 'image caption', 'image copyright', '|', 'Share or comment on this article:', 'Sorry we are not currently accepting comments on this article.', 'Bing', 'Our Standards:', 'Getty Images', 'Slideshow', 'newsletter', 'Next Up In', 'For You', 'Related Topics', 'Reuters', 'FILE PHOTO:', 'media caption', 'follow Bloomberg Africaon Twitter') %>
     <% content = content.gsub(/[P][h][o][t][o][g][r][a][p][h][e][r][:]\s\w+\s\w+\W[B][l][o][o][m][b][e][r][g]/, '') %>
     <% content = content.gsub(/\d\s.{3}\s.{4}/, '') %>
     <% content = content.gsub(/\w+\s\w+\W\w{3}\s[v][i][a]\s\w+\s[I][m][a][g][e]\w/, '') %>
@@ -117,18 +113,18 @@
     <% content = content.gsub(/([a-zA-Z]{2,}\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)\W[A][F][P]\s[v][i][a]/,'') %>
     <% content.split("\n").each do |paragraph| %>
     <% if paragraph.length < 5 %>
-    <%  %>
+    <% '' %>
     <% elsif paragraph == @article.title  %>
     <%= paragraph = '' %>
     <% elsif paragraph.length < 30 && paragraph.length > 5 && paragraph =~ /[A-Z]/%>
     <br>
-    <h5> <strong><%= paragraph %></strong></h5>
+    <h5> <strong><%= paragraph.downcase.capitalize %></strong></h5>
     <br>
     <% elsif paragraph.length < 30 && paragraph.length > 5 && paragraph !=~ /[A-Z]/%>
-    <%= paragraph %>
+    <%= paragraph.downcase.capitalize %>
     <% else %>
     <p>
-      <%= paragraph %>
+      <%= paragraph.downcase.capitalize %>
     </p>
     <% end %>
     <% end %>
