@@ -5,7 +5,7 @@
   <div class="index-all">
     <% searches = @searches %>
     <% search_1 = searches.first %>
-    <% search_2 = searches[11] %>
+    <% search_2 = searches[1] %>
     <% if search_1.present? && search_2.present? %>
     <div id="first-row">
       <div class="first-2">
@@ -24,7 +24,7 @@
       </div>
       <% end %>
       <div class="third">
-        <% search_3 = searches[12] %>
+        <% search_3 = searches[2] %>
         <% if search_3.present? %>
         <div class="middle-card">
           <%= link_to search_path(search_3) do %>
