@@ -51,9 +51,15 @@
                 <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=150&q=80", alt="newspapers image">
             <% end %>
             <div class="card-product-infos">
-              <h2><%= link_to topic.subject, topic_path(topic) %></h2>
+              <div class="row justify-content-between" id="titre">
+                <div>
+                  <h2><%= link_to topic.subject, topic_path(topic) %></h2>
+                </div>
+                <div class="cat">
+                  <h2><%= topic.category %></h2>
+                </div>
+              </div>
               <p><%= link_to topic.content.first(180), topic_path(topic) %></p>
-              <h2><%= topic.category %></h2>
             </div>
           </div>
         <% end %>
@@ -78,9 +84,15 @@
               <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=150&q=80", alt="newspapers image">
           <% end %>
             <div class="card-product-infos">
-              <h2><%= link_to topic.subject, topic_path(topic) %></h2>
+              <div class="row justify-content-between" id="titre">
+                <div>
+                  <h2><%= link_to topic.subject, topic_path(topic) %></h2>
+                </div>
+                <div class="cat">
+                  <h2><%= topic.category %></h2>
+                </div>
+              </div>
               <p><%= link_to topic.content.first(180), topic_path(topic) %></p>
-              <h2><%= topic.category %></h2>
             </div>
           </div>
         <% end %>
