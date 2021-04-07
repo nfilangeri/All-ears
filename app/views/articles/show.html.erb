@@ -1,6 +1,7 @@
 <div class="row mt-4 ml-5" id="back">
         <%= link_to 'Back to article choice', :back, class: "btn btn-ghost" %>
     </div>
+    <%= social_share_button_tag(@article.title, :allow_sites => %w(twitter), onclick: ' return ') %>
 <div class="container">
   <div class="whole-article-beggining">
     <div class="article-info">
