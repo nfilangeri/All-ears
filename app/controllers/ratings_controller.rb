@@ -7,13 +7,13 @@ class RatingsController < ApplicationController
   end
 
   def create
-
     @article = Article.find(params[:article_id])
+
     @rating = Rating.new(params_rating)
     @rating.user = current_user
     @rating.article = @article
-    @rating.save
-      redirect_to article_path(@article, anchor:"rating-avg")
+    @rating.save!
+    redirect_to article_path(@article, anchor:"rating-avg")
 
   end
 

@@ -86,7 +86,7 @@
       <% if search_10.present? && search_9.present?%>
       <div class="ninth-tenth">
         <div class="big-eight-card">
-           <%= link_to search_path(search_9) do %>
+          <%= link_to search_path(search_9) do %>
           <%= image_tag search_9.image[30], width:710, height:490 %>
           <h3 class="text-center mt-3"><%= link_to search_9.query.capitalize, search_path(search_9)%></h3>
           <% end %>
