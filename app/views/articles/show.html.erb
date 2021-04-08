@@ -43,7 +43,7 @@
         <div id="object-and-user-rating">
           <div class="objectiveness" data-controller="counter">
 
-            <div><p>Objectiveness average rating:</p></div>
+            <div><p>Objectiveness average rating | <strong class="ml-1"><%= @rating_count %></strong> <span class="ml-1"> ratings</span></p></div>
             <div class="progress" data-controller="counter">
               <div data-counter-target="count" id="rating-avg" class="progress-bar" role="progressbar" style="width: <%= @article.avg_rating %>%;" aria-valuenow="<%= @article.avg_rating %>%" aria-valuemin="0" aria-valuemax="100" data-counter-target="count"><%= @article.avg_rating %>% objective</div>
             </div>
