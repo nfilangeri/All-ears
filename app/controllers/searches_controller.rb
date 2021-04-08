@@ -5,10 +5,10 @@ skip_before_action :authenticate_user!, only: [:index, :show, :create]
     @searches = Search.all
     @search = Search.new
     @all_searches = Search.all.order(created_at: :desc)
-    @searches = []
+    @unique_searches = []
     @all_searches.each do |search|
-      next if @searches.find {|s| s.query == search.query}
-      @searches << search
+      next if @unique_searches.find {|s| s.query == search.query}
+      @unique_searches << search
     end
   end
 

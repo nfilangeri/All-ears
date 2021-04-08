@@ -3,7 +3,7 @@
 <br>
 <div class="row justify-content-center">
   <div class="index-all">
-    <% searches = @searches %>
+    <% searches = @unique_searches %>
     <% search_1 = searches.first %>
     <% search_2 = searches[1] %>
     <% if search_1.present? && search_2.present? %>
@@ -28,14 +28,14 @@
         <% if search_3.present? %>
         <div class="middle-card">
           <%= link_to search_path(search_3) do %>
-          <%= image_tag search_3.image[11], width:500, height:500 %>
+          <%= image_tag search_3.image[12], width:500, height:500 %>
           <h3 class="text-center mt-3"><%= link_to search_3.query.capitalize, search_path(search_3)%></h3>
           <% end %>
         </div>
       </div>
       <% end %>
       <div class="right-2">
-        <% search_4 = @searches[3] %>
+        <% search_4 = searches[3] %>
         <% if search_4.present? %>
         <div class="each-card">
           <%= link_to search_path(search_4) do %>
@@ -44,7 +44,7 @@
           <% end %>
         </div>
         <% end %>
-        <% search_5 = @searches[4] %>
+        <% search_5 = searches[4] %>
         <% if search_5.present? %>
         <div class="each-card">
           <%= link_to search_path(search_5) do %>
@@ -55,18 +55,18 @@
         <% end %>
       </div>
     </div>
-    <% search_8 = @searches[7] %>
-    <% search_7 = @searches[6] %>
-    <% search_6 = @searches[5] %>
-    <% search_9 = @searches[8] %>
-    <% search_10 = @searches[9] %>
+    <% search_8 = searches[7] %>
+    <% search_7 = searches[6] %>
+    <% search_6 = searches[5] %>
+    <% search_9 = searches[8] %>
+    <% search_10 = searches[9] %>
     <% if search_6.present? && search_7.present? && search_8.present? && search_9.present? && search_10.present? %>
     <div class="second-row">
       <div class="fifth-sixth-seventh">
         <div class="second-card">
           <%= link_to search_path(search_6) do %>
           <%= image_tag search_6.image[5], width:600, height:300 %>
-          <h3 class="text-center mt-3"><%= link_to search_4.query.capitalize, search_path(search_6)%></h3>
+          <h3 class="text-center mt-3"><%= link_to search_6.query.capitalize, search_path(search_6)%></h3>
         <% end %>
         </div>
         <div class="second-card">
