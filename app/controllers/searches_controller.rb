@@ -1,16 +1,14 @@
 class SearchesController < ApplicationController
-
-  skip_before_action :authenticate_user!, only: [:index]
-
+skip_before_action :authenticate_user!, only: [:index, :show, :create]
 
   def index
     @searches = Search.all
     @search = Search.new
     @all_searches = Search.all.order(created_at: :desc)
-    @searches = []
+    @unique_searches = []
     @all_searches.each do |search|
-      next if @searches.find {|s| s.query == search.query}
-      @searches << search
+      next if @unique_searches.find {|s| s.query == search.query}
+      @unique_searches << search
     end
   end
 
@@ -19,7 +17,7 @@ class SearchesController < ApplicationController
     if @search.valid?
       all_articles = Newspaper.all.map do |newspaper|
       newspaper.get_articles(@search)
-       end
+        end
         if all_articles != [nil, nil, nil, nil, nil, nil]
           @search.save
           redirect_to search_path(@search)

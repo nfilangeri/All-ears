@@ -96,6 +96,7 @@
 
 #photo-rating {
   display:flex;
+  justify-content: space-between;
   margin-top: 20px;
 }
 
@@ -138,3 +139,12 @@
   color: black;
 }
 
+
+.newspaper-image img{
+  object-fit:cover;
+}
+
+#titre {
+  display: flex;
+  justify-content: center;
+}

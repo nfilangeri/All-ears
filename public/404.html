@@ -51,13 +51,19 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+
   </style>
 </head>
 
 <body class="rails-default-error-page">
+  <div class="row mt-4 ml-5" id="back">
+    <br>
+    <button onclick="goBack()" class= "btn btn-ghost">Back</button>
+    </div>
   <p class="center">Space Invadors destroyed this page! Take revenge on them!
     <br/> Use <span class="label label-danger">Space</span> to shoot and <span class="label label-danger">←</span>&#160;<span class="label label-danger">→</span> to move!&#160;&#160;&#160;<button class="btn btn-default btn-xs" id="restart">Restart</button></p>
-  
+
   <canvas id="space-invaders"/>
 </body>
 
@@ -528,7 +534,11 @@
 
 
 </script>
-
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
 
 
 </html>

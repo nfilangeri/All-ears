@@ -20,6 +20,7 @@ ActiveStorage.start()
 import "bootstrap";
 import { initTopicCable} from "../channels/topic_channel";
 import { initSweetalert } from '../plugins/init_sweetalert';
+import "share-buttons/dist/share-buttons.js";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -39,7 +40,6 @@ document.addEventListener('turbolinks:load', () => {
     }
   });
 });
-
 
 
 import "controllers"

@@ -11,6 +11,7 @@
   height: 80vh;
   padding-bottom: 200px;
   padding-right: 150px;
+  position: relative;
 }
 
 .perspective-text {
@@ -76,4 +77,22 @@
 
 .perspective-line:nth-child(5) {
   left: 145px;
+}
+
+.white-login{
+  position: absolute;
+  top: 70%;
+  left:48%;
+
+  color: white;
+  font-size: 20px;
+  padding:10px;
+  border: 1px solid white;
+    a{
+      text-decoration: none;
+    }
+}
+.white-login:hover{
+  color: grey;
+
 }
