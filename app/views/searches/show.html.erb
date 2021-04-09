@@ -45,7 +45,7 @@
         <p><%= link_to article.description.first(100), article_path(article) %></p>
         <% end %>
       </div>
-      <div class="card-product-tag d-flex align-items-center mr-3">
+      <div class="card-product-tag d-flex align-items-center mr-3" >
         <% if article.newspaper.tag_political == "Lean Left" %>
         <i class="fas fa-arrow-left"></i>
         <% elsif article.newspaper.tag_political == "Lean Right" %>
