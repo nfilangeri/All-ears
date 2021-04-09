@@ -52,7 +52,7 @@
                   <h2><%= link_to topic.subject, topic_path(topic) %></h2>
                   <p><%= link_to topic.content.first(180), topic_path(topic) %></p>
                 </div>
-                  <div class="card-product-tag mr-3">
+                  <div class="card-product-tag mr-3" id="topics-card-end">
                   <h2><%= topic.category %></h2>
                   <p><% if topic.messages.count <= 1  %>
                     <%= topic.messages.count %><i class="fas fa-comments ml-2"></i>
@@ -96,7 +96,7 @@
                   <h2><%= link_to topic.subject, topic_path(topic) %></h2>
                   <p><%= link_to topic.content.first(180), topic_path(topic) %></p>
               </div>
-                <div class="card-product-tag mr-3">
+                <div class="card-product-tag mr-3" id="topics-card-end">
                   <h2><%= topic.category %></h2>
                   <p><% if topic.messages.count <= 1  %>
                     <%= topic.messages.count %><i class="fas fa-comments ml-2"></i>
