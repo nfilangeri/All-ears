@@ -1,1 +1,2 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+All-Ears is a live news website.
+Frontend( Ruby ) & backend ( HTML/CSS/JS ) development via Ruby on Rails. Deployment on Heroku 
